@@ -1,22 +1,22 @@
 # -*-coding:utf-8 -*
+from abc import ABCMeta
 
 class Problem:
+	__metaclass__ = ABCMeta
+	
 	domain = []
 	def __init__(self):	
-		print
+		return NotImplemented
 	
 	def initialNode(self):
-		print
+		return NotImplemented
 	
 	def testSat(self, node):
-		print
+		return NotImplemented		
 	
 	def printSolution(self, node):
-		print "coucou"
+		return NotImplemented		
 
-p = Problem()
-node = 0
-p.printSolution(node)
 
 
 
