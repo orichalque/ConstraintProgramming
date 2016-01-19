@@ -17,7 +17,6 @@ class Problem:
 	def printSolution(self, node):
 		return NotImplemented		
 
-p = Problem ()
 
 
 
