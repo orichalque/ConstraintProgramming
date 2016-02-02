@@ -5,19 +5,20 @@ class BranchingStrat(abstractSolver.AbstractSolver):
                 return None
 		
         def solve(self, problem):
-                domains = problem.node
-                return branchAndPruneRec(problem, domains)
+                sol = list()
+                self.branchAndPruneRec(problem, dom(prob),sol)
+                return sol
 				
         def branchAndPruneRec(self, problem, domains, solutions):
                 
-###		E ’ := Prune (P , E )
-                domainsBis = self.prune(problem, domains)
+###		E ’ := Prune (Prob , E )
+                domains = self.prune(domains)
 ###		if E ’ is empty then
                 if domains =={}:                       
 ###			fail
                         return {}
 ###		else if E ’ is a solution then
-                elif estSolution(domains):
+                elif self.estSolution(domains):
 ###			label E ’ as a solution
                         solutions.append(domains)
 ###		else
@@ -28,7 +29,14 @@ class BranchingStrat(abstractSolver.AbstractSolver):
                                 self.branchAndPruneRec(problem,domainBis,solutions)
                         
 
-        def prune(self,problem, domains):
+        #prunage simple : si on a une affectation, on enleve la valeur du domaine de chaque variable
+        def prune(self, domains):
+                for clef in domains:
+                        if len(domains[clef])==1:
+                                val_to_del = domains[clef][0]
+                                for variable in domains:
+                                        if domains[variable].count(val_to_del) !=0 and variable!=clef:
+                                                domains[variable].remove(val_to_del)
                 return domains
 		
         def find_min(self,dico):
@@ -43,7 +51,8 @@ class BranchingStrat(abstractSolver.AbstractSolver):
                                 min_domaine = domaine
                                 min_taille_domaine = taille_domaine
                 return min_clef
-        
+
+        #Stratégie : on choisit celui qui a le moins de "branches" et on branch !
         def branch(self,domains):
                 ens_domains_res=[]
                 clef_min = self.find_min(domains)
@@ -53,7 +62,7 @@ class BranchingStrat(abstractSolver.AbstractSolver):
                         ens_domains_res.append(dict(domains))              
                 return ens_domains_res
 
-a={'a': [1,2,3], 'b': [1, 2]}
+a={'a': [1,2,3], 'b': [1, 2],'c':[1]}
 b=a
 x = BranchingStrat()
 ens=[];dico={'a':[5]}
