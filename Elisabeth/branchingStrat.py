@@ -23,7 +23,10 @@ class BranchingStrat(abstractSolver.AbstractSolver):
 	def prune(self,problem, domains)
 		return domains
 		
-	def branch(domains)
+	def branchMinDomain(domains)
 		branches = []
+		#recherche de cardinalitéMin dans domains
+		for k,v in domains
+			print l(v)
 		return branches
 
