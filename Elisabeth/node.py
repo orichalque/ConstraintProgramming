@@ -2,23 +2,28 @@
 
 class node:
 
-	def __init__(self, domains = dict(), subNodes = []):	
+	def __init__(self, domains = dict(), subNodes = []):
 		self.domains = domains
-		self.childrens = childrens
+		self.subNodes = subNodes
 		
-	def branch(node):
-		subNodes.append(node)
+	def branch(self, node):
+		self.subNodes.append(node)
+		return 0
 		
-	def printTree(depth = 1):
-		for 0 to depth:
-			print "---"
-		print ">"
-		domains
-		for i in subNodes:
-			i.printTree(depth+1)
-		
-		
-n = node({'a': [1,2,3], 'b': [1,2]})
-n.branche(node({'a': [1], 'b': [1,2]}))
-n.branche(node({'a': [2], 'b': [1,2]}))
-n.branche(node({'a': [3], 'b': [1,2]}))
+	def printTree(self, depth = 1):
+		for i in range(0, depth):
+			print("---",end="")
+		print(">",end="")
+		print(self.domains)
+		for nod in self.subNodes:
+			nod.printTree(depth+1)
+		return 0
+
+n1 = node({'1': [1,2,3], '2': [1,2]},[])
+n2 = node({'1': [1], '2': [1,2]},[])
+n1.branch(n2)
+n1.branch(node({'1': [2], '2': [1,2]},[]))
+n1.branch(node({'1': [3], '2': [1,2]},[]))
+n2.branch(node({'1': [1], '2': [1]},[]))
+n2.branch(node({'1': [1], '2': [2]},[]))
+n1.printTree()

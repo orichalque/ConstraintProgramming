@@ -1,2 +1,3 @@
 # ConstraintProgramming
-Projet 3 seances Constraint Programming universitÃ© de Nantes
+
+Projet 3 seances Constraint Programming université de Nantes

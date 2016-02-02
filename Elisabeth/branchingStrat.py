@@ -23,10 +23,21 @@ class BranchingStrat(abstractSolver.AbstractSolver):
 	def prune(self,problem, domains)
 		return domains
 		
-	def branchMinDomain(domains)
-		branches = []
-		#recherche de cardinalitéMin dans domains
-		for k,v in domains
-			print l(v)
+
+	def branch(self,domains)
+		branches = domains[find_min(domains)]
+		
 		return branches
 
+	def find_min(dico):
+	  min_clef = sorted(dico)[0]
+	  min_domaine = dico[min_clef]
+	  min_taille_domaine = len(min_domaine)
+		  for clef in dico:
+			  domaine = dico[clef]
+			  taille_domaine = len(domaine)
+			  if(taille_domaine<min_taille_domaine):
+				  min_clef=clef
+				  min_domaine = domaine
+				  min_taille_domaine = taille_domaine
+	  return min_clef
