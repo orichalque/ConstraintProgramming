@@ -17,7 +17,26 @@ class NQueenProblem(Problem):
 		self.node = node(d, [])
 		
 	def testSat(self, node):
-		return NotImplemented		
+		assigned = []
+		clefs = sorted(node.domains)
+		for clef in clefs:
+			if len(node.domains[clef])==0:
+				return False
+			if len(node.domains[clef])==1:
+				assigned.append(node.domains[clef][0])
+			else:
+				assigned.append(-1)
+		for i in range(0,len(assigned)):
+			if assigned[i] != -1:
+				for j in range(i+1,len(assigned)):
+					if assigned[j] != -1:
+						#test colonne
+						if assigned[i] == assigned[j]:
+							return False
+						#test diag
+						if j-i == abs(assigned[j]-assigned[i]):
+							return False
+		return True
 	
 	def printSolution(self):
 		self.node = node({'1': [1], '2': [2], '3': [3] , '4': [4] , '5': [5]},[])
@@ -42,4 +61,6 @@ class NQueenProblem(Problem):
 n = NQueenProblem(5)
 n.printNode()
 n.printSolution()
+
+print(n.testSat(node({'1': [1,2,3], '2': [1], '3': [2], '4': [3,4]},[])))
 

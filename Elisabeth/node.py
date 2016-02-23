@@ -19,11 +19,3 @@ class node:
 			nod.printTree(depth+1)
 		return 0
 
-n1 = node({'1': [1,2,3], '2': [1,2]},[])
-n2 = node({'1': [1], '2': [1,2]},[])
-n1.branch(n2)
-n1.branch(node({'1': [2], '2': [1,2]},[]))
-n1.branch(node({'1': [3], '2': [1,2]},[]))
-n2.branch(node({'1': [1], '2': [1]},[]))
-n2.branch(node({'1': [1], '2': [2]},[]))
-n1.printTree()
