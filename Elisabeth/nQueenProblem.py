@@ -1,23 +1,30 @@
 # -*-coding:utf-8 -*
-import problem,
+#import problem
+from node import node
 
-class NQueenProblem(Problem):
-	__metaclass__ = ABCMeta
-	
-	domain = []
-	def __init__(self):	
-		return NotImplemented
+class NQueenProblem():
+	#__metaclass__ = ABCMeta
+
+	def __init__(self, n):	
+ 		self.sz = n;
+ 		self.initialNode()
 	
 	def initialNode(self):
-		return NotImplemented
-	
+		d = dict()
+		for x in range(1, self.sz+1):
+			l = list(range(1, self.sz+1))
+			d.update({str(x) : l})				
+		self.node = node(d, [])
+		
 	def testSat(self, node):
 		return NotImplemented		
 	
 	def printSolution(self, node):
-		return NotImplemented		
+		return NotImplemented	
+		
+	def printNode(self):
+		self.node.printTree()	
 
 
-
-
-	
+n = NQueenProblem(5)
+n.printNode()
