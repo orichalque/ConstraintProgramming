@@ -18,12 +18,13 @@ class NQueenProblem():
 		
 	def testSat(self, node):
 		assigned = []
-		for clef in node.domains:
+		clefs = sorted(node.domains)
+		for clef in clefs:
 			if len(node.domains[clef])==0:
 				return False
 			if len(node.domains[clef])==1:
-				assigned.append(node.domains[clef][0]
-			else
+				assigned.append(node.domains[clef][0])
+			else:
 				assigned.append(-1)
 		for i in range(0,len(assigned)):
 			if assigned[i] != -1:
@@ -46,3 +47,4 @@ class NQueenProblem():
 
 n = NQueenProblem(5)
 n.printNode()
+print(n.testSat(node({'1': [1,2,3], '2': [1], '3': [2], '4': [3,4]},[])))
