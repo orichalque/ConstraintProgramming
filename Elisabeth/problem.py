@@ -3,8 +3,7 @@ from abc import ABCMeta
 
 class Problem:
 	__metaclass__ = ABCMeta
-	
-	domain = []
+
 	def __init__(self):	
 		return NotImplemented
 	
