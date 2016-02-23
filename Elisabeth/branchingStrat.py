@@ -30,7 +30,17 @@ class BranchingStrat(abstractSolver.AbstractSolver):
                         
 
         #prunage simple : si on a une affectation, on enleve la valeur du domaine de chaque variable
-        def prune(self, domains):
+        def pruneSimple(self, domains):
+                for clef in domains:
+                        if len(domains[clef])==1:
+                                val_to_del = domains[clef][0]
+                                for variable in domains:
+                                        if domains[variable].count(val_to_del) !=0 and variable!=clef:
+                                                domains[variable].remove(val_to_del)
+                return domains
+        
+        #prunage Diag : si on a une affectation, on enleve des autres variables les diagonales déja affectées
+        def pruneDiag(self, domains):
                 for clef in domains:
                         if len(domains[clef])==1:
                                 val_to_del = domains[clef][0]
