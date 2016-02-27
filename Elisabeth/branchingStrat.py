@@ -39,16 +39,27 @@ class BranchingStrat(abstractSolver.AbstractSolver):
                                                 domains[variable].remove(val_to_del)
                 return domains
         
-        #prunage Diag : si on a une affectation, on enleve des autres variables les diagonales déja affectées
+        #prunage Diag : si on a une affectation, on enleve des autres variables les diagonales déja affectées et la valeur
+        # prunage simple + prunage en diagonale.
         def pruneDiag(self, domains):
-                for clef in domains:
-                        if len(domains[clef])==1:
-                                val_to_del = domains[clef][0]
-                                for variable in domains:
-                                        if domains[variable].count(val_to_del) !=0 and variable!=clef:
-                                                domains[variable].remove(val_to_del)
-                return domains
-		
+            clefs = sorted(domains)    
+            for clef_i in clefs:
+                if len(domains[clef_i])==1:
+                    val_to_del = domains[clef_i][0]
+                    for clef_j in clefs:
+                        if clef_j!=clef_i:
+                            #colonne
+                            if domains[clef_j].count(val_to_del) !=0:
+                                domains[clef_j].remove(val_to_del)
+                            offset = clef_i - clef_j
+                            #diagonale
+                            if domains[clef_j].count(val_to_del - offset) !=0:
+                                domains[clef_j].remove(val_to_del - offset)
+                            #Anti-diagonale
+                            if domains[clef_j].count(val_to_del + offset) !=0:
+                                domains[clef_j].remove(val_to_del + offset)
+            return domains
+                
         def find_min(self,dico):
                 min_clef = sorted(dico)[0]
                 min_domaine = dico[min_clef]
@@ -72,13 +83,9 @@ class BranchingStrat(abstractSolver.AbstractSolver):
                         ens_domains_res.append(dict(domains))              
                 return ens_domains_res
 
-a={'a': [1,2,3], 'b': [1, 2],'c':[1]}
-b=a
+a={1: [1,2,3,4], 2: [1,2,3,4], 3:[2], 4:[1,2,3,4]}
+
+#b=a
 x = BranchingStrat()
-ens=[];dico={'a':[5]}
 
-
-for e in [1,2]:
-        dico.update({'a':e})
-        ens.append(dict(dico))
-
+a=x.pruneDiag(a)
