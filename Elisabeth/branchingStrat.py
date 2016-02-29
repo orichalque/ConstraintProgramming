@@ -11,13 +11,9 @@ class BranchingStrat(abstractSolver.AbstractSolver):
                 return sol
 				
         def branchAndPruneRec(self, problem, domains, solutions):
-                print("*********",domains)
-                
-                dom= dict(self.pruneDiag(dict(domains)))
-                print("\\\\\\\\",domains)
-
+                dom= self.pruneDiag(domains)
                 for clef in dom:
-                        if len(domains[clef])==0:
+                        if len(dom[clef])==0:
                                 return []
 
                 if self.estSolution(dom):
@@ -51,6 +47,8 @@ class BranchingStrat(abstractSolver.AbstractSolver):
         def pruneDiag(self, domainsGlob):
                 domains=dict(domainsGlob)
                 clefs = sorted(domains)
+                for clef_i in domains:
+                        domains[clef_i] = list(domainsGlob[clef_i])
                 for clef_i in clefs:
                         if len(domains[clef_i])==1:
                                 val_to_del = domains[clef_i][0]
@@ -66,7 +64,7 @@ class BranchingStrat(abstractSolver.AbstractSolver):
                                                 #Anti-diagonale
                                                 if domains[clef_j].count(val_to_del + offset) !=0:
                                                         domains[clef_j].remove(val_to_del + offset)
-                return dict(domains)
+                return domains
                 
         def find_min(self,dico):
                 min_clef =sorted(dico)[0]
@@ -75,7 +73,7 @@ class BranchingStrat(abstractSolver.AbstractSolver):
                         if (len(dico[clef]) >1):
                               min_clef = clef
                               break
-                print([min_clef])
+                #print([min_clef])
                 min_domaine = dico[min_clef]
                 min_taille_domaine = len(min_domaine)
                 for clef in dico:
@@ -102,13 +100,12 @@ class BranchingStrat(abstractSolver.AbstractSolver):
                 return ens_domains_res
 
 a={1: [1,2,3,4], 2: [1,2,3,4], 3:[2], 4:[1,2,3,4]}
-b ={'1': [1], '5': [1, 2, 3, 4, 5], '3': [1, 2, 3, 4, 5], '4': [1, 2, 3, 4, 5], '2': [1, 2, 3, 4, 5]}
+b ={'5': [2, 3, 4], '1': [1], '3': [2, 4, 5], '4': [2, 3, 5], '2': [3]}
 #b=a
 x = BranchingStrat()
-z = NQueenProblem(5)
+z = NQueenProblem(8)
 solutions = x.solve(z)
 #solutions=x.branch(z.node.domains)
-#solutions=x.branch(b)
 #solutions=x.pruneDiag(b)
-
-print ("***solution :",solutions)
+print ("***solutions :",solutions)
+#print ("***b apres :",b)
