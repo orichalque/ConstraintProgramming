@@ -6,8 +6,8 @@
 \usepackage{fancyhdr}
 
 \pagestyle{fancy}
-\title{Projet programmation par contrainte : Elisabeth}
-\author{T.Béziers La fosse, D.Bordet, J. Clayton, A. Giraudet, B. Moreau}
+\title{Projet de Programmation par Contraintes : Élisabeth}
+\author{T.Béziers La Fosse, D.Bordet, J. Clayton, A. Giraudet, B. Moreau}
 
 
 
@@ -46,28 +46,53 @@
 
 \vspace{1cm}
 
-Le but de ce projet en programmation par contrainte est d'implementer un mini solveur pour des domaines CPSs finis.
-La conception de ce projet s'étends sur trois séances de TP et doit nous permettre de proposer un solveur pour la recherche complète et la recherche local et comparer les solutions pour chaque méthode du problème dit "des n reines".
+Dans le cadre du module de Programmation par Contraintes en Master 1 ALMA, nous avons eu pour objectif d'implémenter un solveur capable de résoudre le problème des \emph{N-Queens}. 
 
-Nous avons décidé d'utiliser python 3.5.1 comme support de programmation et
-nous traiterons dans une premiere partie du \textbf{Complete Search} et dans la seconde du \textbf{Local Search}.
-Enfin, nous discuterons des résultats et de la comparaison de ceux ci dans la conclusion.
+Ce projet est étendu sur trois séances, durant lesquelles nous avons dû concevoir ce solveur, capable d'effectuer une recherche complète des solutions, mais aussi une recherche locale, et enfin comparer les résultats d'exécutions sur des problèmes de taille variable.
+
+Pour implémenter notre solveur, nous avons pris la décision d'utiliser le langage de Programmation Python3. Nous avons hésité avec $C++$, mais avons finalement choisi ce premier. Même si ses performances sont légèrement moins bonnes qu'avec $C++$, nous apprécions sa simplicité d’utilisation. De plus aucun autre module de notre Master ne nous a donné l’occasion de nous en servir, si bien que nous avons vu ici une opportunité pour nous réhabituer à ce langage particulièrement au goût du jour.
+
+Dans ce rapport nous verrons en première partie le problème des \emph{N-Queens} avec plus de précision. Ensuite nous parlerons de la recherche complète que nous avons implémenté, puis la recherche locale. Enfin nous comparerons nous résultats d'exécution. 
 
 
 \vspace{1cm}
 
-\subsection{le problème des n reines et les contraintes}
+\subsection{Problème des N-Queens}
 
-Le problème des n reines correspond à la mise en place de n reines sur un échiquier. Chaque reine ne doit pas être en position d'en attaquer une autre.
-Il faut ainsi donc placer les reines d'une façon définie et respectant les contraintes suivante :
+Le problème des \emph{N-Queens} est un problème très célèbre dans le monde des mathématiques. Ce problème posé pour la première fois en 1850 par Franz Nauck consiste à trouver poser $n$ reines sur un échiquier faisant $n$ cases de côté sans qu'elles puissent s'attaquer. Ainsi elles ne doivent pas: 
+\begin{itemize}
+\item Etre sur la même ligne
+\item Etre sur la même colonne
+\item Etre sur la même diagonale
+\end{itemize}
+
+\\
+Ce problème pose quelques problèmes, car il n'existe pas d'algorithme polynomial en complexité.
+
+
+En testant toutes les possibilités de placement des reines sur un échiquier de taille 8*8 avec un algorithme de recherche exhaustive, on se retrouve à parcourir $64^8$ placements possibles, soit $2^4^8$, si bien qu'on arrive rapidement à des temps d'exécution bien trop longs. Néanmoins on peut réduire facilement ce temps d'exécution avec la programmation par contraintes. 
+\newline
+
+\subsubsection{Contraintes}
+
+On doit ainsi modéliser les contraintes dans notre programme pour réduire drastiquement le nombre d'itérations avant de trouver une solution. Les contraintes, en langage naturel, sont donc:
 
 \begin{itemize}
 \item Il doit y avoir qu'une reine par ligne.
-\item Il doit y avoir qu'une reine par collone.
-\item Il ne doit pas y avoir plus d'une reine par diagonal;
+\item Il doit y avoir qu'une reine par colonne.
+\item Il ne doit pas y avoir plus d'une reine par diagonale;
 \end{itemize}
 
+Ainsi pour modéliser ceci sous la forme d'un CSP, on utilisera les variables suivantes:
+$x_i$: Reine de la ligne $i$.
+$x_i = j$ : $j$, numéro de la colonne où est placée la reine.
 
+Avec ce modèle on est sûr qu'il n'y aura pas d'attaques si deux reines sont sur la même ligne, puisqu'on ne permet qu'une seule reine par ligne.
+Les contraintes sont donc les suivantes:
+\begin{itemize}
+\item Pas d'attaque sur les colonnes: $allDifferent(x_i)$ $\forall i$ entre $1$ et $n$. $\forall i \neq j$, $x_i \neq x_j$
+\item Pas d'attaque sur les diagonales:  $\forall i \neq j, |x_i - x_j| \neq |i - j|$, et $\forall  1 \leq i < j \leq n : |x_i - x_j | \neq j - i
+\end{itemize}
 \begin{figure}[h]
 
 \begin{center}
