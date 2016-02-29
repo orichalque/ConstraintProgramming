@@ -60,11 +60,7 @@ class NQueenProblem(Problem):
 
 n = NQueenProblem(5)
 n.printNode()
-<<<<<<< HEAD
-print(n.testSat(node({'1': [3], '2': [1], '3': [4], '4': [2]},[])))
-=======
-n.printSolution()
 
-print(n.testSat(node({'1': [1,2,3], '2': [1], '3': [2], '4': [3,4]},[])))
+#print(n.testSat(node({'1': [3], '2': [1], '3': [4], '4': [2]},[])))
 
->>>>>>> ed20d6c03fd6e7d322f780652388b1492fb1a149
+
