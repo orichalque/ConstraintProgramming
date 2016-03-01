@@ -15,6 +15,7 @@ class NQueenProblem(Problem):
 		for x in range(1, self.sz+1):			
 			d.update({str(x) : l})				
 		self.node = node(d, [])
+		return self.node
 		
 	def testSat(self, node):
 		assigned = []
