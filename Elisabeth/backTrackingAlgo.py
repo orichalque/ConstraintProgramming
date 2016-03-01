@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import abstractSolver
-from node import node
+from node import Node
 from nQueenProblem import NQueenProblem
 
 class BackTrackingAlgorithm(abstractSolver.AbstractSolver):
@@ -24,7 +24,7 @@ class BackTrackingAlgorithm(abstractSolver.AbstractSolver):
                 else:
                         self.branche(node)
                         for noeud in node.subNodes:
-                                self.backtrack(problem, node(noeud.domains),sol)
+                                self.backtrack(problem, Node(noeud.domains),solutions)
 
         def find_min(self,dico):
                 min_clef =sorted(dico)[0]
@@ -50,17 +50,19 @@ class BackTrackingAlgorithm(abstractSolver.AbstractSolver):
         #Stratégie : on choisit celui qui a le moins de "branches" et on branch !
         def branche(self,node):
                 domains=dict(node.domains)
-                ens_domains_res=[]
                 clef_min = self.find_min(domains)
                 branches = domains[clef_min]
-                #print ("branches",branches)
                 for elem in branches:
                         domains.update({clef_min:[elem]})
-                        node.subNodes.append(node( dict(domains),[] )   )
+                        node.branch(Node(dict(domains)))
                         #ens_domains_res.append(dict(domains))              
 
 b=BackTrackingAlgorithm()
 z = NQueenProblem(4)
-a=node({'2': [1, 2, 3, 4, 5], '1': [1, 2, 3, 4, 5], '4': [1, 2, 3, 4, 5], '5': [1, 2, 3, 4, 5], '3': [1, 2, 3, 4, 5]})
-sol=b.solve(z)
-print (sol)
+a=Node({'4': [1, 2, 3, 4], '2': [1], '3': [1, 2, 3, 4], '1': [1]})
+#sol=b.solve(z)
+b.branche(a)
+#print(sol)
+for sn in a.subNodes:
+        print (sn.domains)
+        

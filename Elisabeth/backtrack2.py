@@ -1,18 +1,32 @@
+# -*- coding: utf-8 -*-
 import abstractSolver
 from nQueenProblem import NQueenProblem
 from nQueenProblem import printNode
 from node import node
 
-class BranchingStrat(abstractSolver.AbstractSolver):
+class BackTrack2(abstractSolver.AbstractSolver):
         def __init__(self):
                 return None
 			
         def solve(self, problem):
                 sol = list()
-                self.branchAndPruneRec(problem, problem.node.domains,sol)
+                self.back(problem, problem.node.domains,sol)
                 return sol
 				
-        def branchAndPruneRec(self, problem, domains, solutions):
+        def back(self, problem, domains, solutions):
+            fini=True
+            for clef in domains:
+                        if len(domains[clef])>1:
+                                fini = False
+                #print("fini : ", fini)
+
+            if fini:
+                if problem.testSat(Node(domains)):
+                    solutions.append(domains)
+                else:
+                        self.branch(domains)
+                        for noeud in node.subNodes:
+                            self.backtrack(problem, Node(noeud.domains),solutions)
                 dom= self.pruneDiag(domains)
                 for clef in dom:
                         if len(dom[clef])==0:
@@ -21,10 +35,8 @@ class BranchingStrat(abstractSolver.AbstractSolver):
                 if self.estSolution(dom):
                         solutions.append(dom)
                 else:
-                        #print ("_____domains",domains)
                         for domainsBis in self.branch(dom):
-                                #print("___domainsbis________", domainsBis)
-                                self.branchAndPruneRec(problem,dict(domainsBis),solutions)
+                                self.back(problem,dict(domainsBis),solutions)
                         
 
         #prunage simple : si on a une affectation, on enleve la valeur du domaine de chaque variable
@@ -104,7 +116,7 @@ class BranchingStrat(abstractSolver.AbstractSolver):
 a={1: [1,2,3,4], 2: [1,2,3,4], 3:[2], 4:[1,2,3,4]}
 b ={'5': [2, 3, 4], '1': [1], '3': [2, 4, 5], '4': [2, 3, 5], '2': [3]}
 #b=a
-x = BranchingStrat()
+x = BackTrack2()
 z = NQueenProblem(5)
 solutions = x.solve(z)
 #solutions=x.branch(z.node.domains)
