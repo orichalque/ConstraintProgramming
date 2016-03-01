@@ -90,20 +90,14 @@ $x_i = j$ : $j$, numéro de la colonne où est placée la reine.
 Avec ce modèle on est sûr qu'il n'y aura pas d'attaques si deux reines sont sur la même ligne, puisqu'on ne permet qu'une seule reine par ligne.
 Les contraintes sont donc les suivantes:
 \begin{itemize}
-\item Pas d'attaque sur les colonnes: $allDifferent(x_i)$ $\forall i$ entre $1$ et $n$. $\forall i \neq j$, $x_i \neq x_j$
-\item Pas d'attaque sur les diagonales:  $\forall i \neq j, |x_i - x_j| \neq |i - j|$, et $\forall  1 \leq i < j \leq n : |x_i - x_j | \neq j - i
+\item Pas d'attaque sur les colonnes: $allDifferent(x_i)$ $\forall i \in [1, n]$. $\forall i \neq j$, $x_i \neq x_j$
+
+\item Pas d'attaque sur les diagonales:  $\forall i \neq j, |x_i - x_j| \neq |i - j|$, et $\forall  1 \leq i < j \leq n : |x_i - x_j | \neq j - i$
 \end{itemize}
-\begin{figure}[h]
-
-\begin{center}
-\includegraphics[]{./picture/prob.png}
-\end{center}
-
-\end{figure}
 
 
 \newpage
-\subsection{Compositiion de notre groupe}
+\subsection{Composition de notre groupe}
 
 \vspace{1cm}
 
