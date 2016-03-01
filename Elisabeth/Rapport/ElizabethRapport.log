@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.11.3)  29 FEB 2016 18:09
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.11.3)  1 MAR 2016 13:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -406,11 +406,11 @@ Overfull \hbox (9.06212pt too wide) in paragraph at lines 20--20
  [][] 
  []
 
-<./picture/eli.jpg, id=1, 216.81pt x 294.8616pt>
+<./picture/eli.jpg, id=1, 603.25375pt x 659.46375pt>
 File: ./picture/eli.jpg Graphic file (type jpg)
  <use ./picture/eli.jpg>
 Package pdftex.def Info: ./picture/eli.jpg used on input line 27.
-(pdftex.def)             Requested size: 250.93842pt x 341.29282pt.
+(pdftex.def)             Requested size: 250.93842pt x 274.31636pt.
 
 [1
 
@@ -455,99 +455,32 @@ Overfull \hbox (12.16278pt too wide) in paragraph at lines 78--79
 so-lu-tion. Les contraintes,
  []
 
-
-! LaTeX Error: Command \end{itemize} invalid in math mode.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.95 \end{itemize}
-                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.95 \end{itemize}
-                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.95 \end{itemize}
-                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.95 \end{itemize}
-                  
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-
-LaTeX Warning: File `./picture/prob.png' not found on input line 99.
-
-
-! Package pdftex.def Error: File `./picture/prob.png' not found.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.99 \includegraphics[]{./picture/prob.png}
-                                           
-Using draft setting for this image.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 99.
-(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-) [4] [5] [6]
-(./ElizabethRapport.aux) ) 
+[4] [5] [6] (./ElizabethRapport.aux) ) 
 Here is how much of TeX's memory you used:
- 2924 strings out of 494999
- 38912 string characters out of 6180228
+ 2907 strings out of 494999
+ 38350 string characters out of 6180228
  100174 words of memory out of 5000000
- 6097 multiletter control sequences out of 15000+600000
- 13584 words of font info for 33 fonts, out of 8000000 for 9000
+ 6084 multiletter control sequences out of 15000+600000
+ 14035 words of font info for 33 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  37i,10n,43p,545b,302s stack positions out of 5000i,500n,10000p,200000b,80000s
- </comptes/E104607D/.texmf-var/fonts/pk/ljfour/jknapp
-en/ec/ectt1000.600pk> </comptes/E104607D/.texmf-var/fonts/pk/ljfour/jknappen/ec
-/ecti1000.600pk> </comptes/E104607D/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx
-1200.600pk> </comptes/E104607D/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1000.
-600pk> </comptes/E104607D/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk
-> </comptes/E104607D/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsl1000.600pk> </c
-omptes/E104607D/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </compte
-s/E104607D/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </comptes/E10
-4607D/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmsy10.pfb>
-Output written on ElizabethRapport.pdf (6 pages, 146784 bytes).
+ </comptes/E104607D/.texmf-var/fonts/pk/l
+jfour/jknappen/ec/ecti1000.600pk> </comptes/E104607D/.texmf-var/fonts/pk/ljfour
+/jknappen/ec/ecbx1200.600pk> </comptes/E104607D/.texmf-var/fonts/pk/ljfour/jkna
+ppen/ec/ecbx1000.600pk> </comptes/E104607D/.texmf-var/fonts/pk/ljfour/jknappen/
+ec/ecbx1440.600pk> </comptes/E104607D/.texmf-var/fonts/pk/ljfour/jknappen/ec/ec
+sl1000.600pk> </comptes/E104607D/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm100
+0.600pk> </comptes/E104607D/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600
+pk> </comptes/E104607D/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> <
+/comptes/E104607D/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on ElizabethRapport.pdf (6 pages, 190796 bytes).
 PDF statistics:
- 342 PDF objects out of 1000 (max. 8388607)
+ 329 PDF objects out of 1000 (max. 8388607)
  65 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
