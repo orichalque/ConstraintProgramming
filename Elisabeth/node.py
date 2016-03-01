@@ -1,6 +1,6 @@
 # -*-coding:utf-8 -*
 
-class node:
+class Node:
 
 	def __init__(self, domains = dict(), subNodes = []):
 		self.domains = domains
@@ -8,7 +8,7 @@ class node:
 		
 	def branch(self, node):
 		self.subNodes.append(node)
-		return 0
+
 		
 	def printTree(self, depth = 1):
 		for i in range(0, depth):
@@ -17,5 +17,5 @@ class node:
 		print(self.domains)
 		for nod in self.subNodes:
 			nod.printTree(depth+1)
-		return 0
+
 

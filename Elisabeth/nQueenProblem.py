@@ -1,6 +1,6 @@
 # -*-coding:utf-8 -*
 from problem import Problem
-from node import node
+from node import Node
 
 #Pre: Une reine par ligne
 def printNode(n):
@@ -30,7 +30,7 @@ class NQueenProblem(Problem):
 		l = list(range(1, self.sz+1))
 		for x in range(1, self.sz+1):			
 			d.update({str(x) : l})				
-		self.node = node(d, [])
+		self.node = Node(d, [])
 		return self.node
 		
 	def testSat(self, node):
@@ -56,7 +56,7 @@ class NQueenProblem(Problem):
 		return True
 	
 	def printSolution(self):
-		self.node = node({'1': [1], '2': [2], '3': [3] , '4': [4] , '5': [5]},[])
+		self.node = Node({'1': [1], '2': [2], '3': [3] , '4': [4] , '5': [5]},[])
 		arrayToPrint = []
 		print("Affichage de la solution")
 		for key, value in sorted(self.node.domains.items()):
@@ -75,7 +75,7 @@ class NQueenProblem(Problem):
 		self.node.printTree()	
 
 
-p = node({'1': [1], '2': [2], '3': [3] , '4': [4] , '5': [5]},[])
+p = Node({'1': [1], '2': [2], '3': [3] , '4': [4] , '5': [5]},[])
 printNode(p)
 
 #print(n.testSat(node({'1': [3], '2': [1], '3': [4], '4': [2]},[])))

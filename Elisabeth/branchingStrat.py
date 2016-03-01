@@ -1,5 +1,7 @@
 import abstractSolver
 from nQueenProblem import NQueenProblem
+from nQueenProblem import printNode
+from node import node
 
 class BranchingStrat(abstractSolver.AbstractSolver):
         def __init__(self):
@@ -103,9 +105,10 @@ a={1: [1,2,3,4], 2: [1,2,3,4], 3:[2], 4:[1,2,3,4]}
 b ={'5': [2, 3, 4], '1': [1], '3': [2, 4, 5], '4': [2, 3, 5], '2': [3]}
 #b=a
 x = BranchingStrat()
-z = NQueenProblem(8)
+z = NQueenProblem(5)
 solutions = x.solve(z)
 #solutions=x.branch(z.node.domains)
 #solutions=x.pruneDiag(b)
-print ("***solutions :",solutions)
+for sol in solutions:
+        printNode(node(sol))
 #print ("***b apres :",b)
