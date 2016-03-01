@@ -66,12 +66,11 @@ Le problème des \emph{N-Queens} est un problème très célèbre dans le monde 
 \item Etre sur la même diagonale
 \end{itemize}
 
-\\
 Ce problème pose quelques problèmes, car il n'existe pas d'algorithme polynomial en complexité.
 
 
-En testant toutes les possibilités de placement des reines sur un échiquier de taille 8*8 avec un algorithme de recherche exhaustive, on se retrouve à parcourir $64^8$ placements possibles, soit $2^4^8$, si bien qu'on arrive rapidement à des temps d'exécution bien trop longs. Néanmoins on peut réduire facilement ce temps d'exécution avec la programmation par contraintes. 
-\newline
+En testant toutes les possibilités de placement des reines sur un échiquier de taille $8*8$ avec un algorithme de recherche exhaustive, on se retrouve à parcourir $64^8$ placements possibles, soit $2^{48}$, si bien qu'on arrive rapidement à des temps d'exécution bien trop longs. Néanmoins on peut réduire facilement ce temps d'exécution avec la programmation par contraintes. 
+
 
 \subsubsection{Contraintes}
 
@@ -96,27 +95,7 @@ Les contraintes sont donc les suivantes:
 \end{itemize}
 
 
-\newpage
-\subsection{Composition de notre groupe}
-
-\vspace{1cm}
-
-\begin{tabbing}
-
-
-\=blaaaaaaaaaaaa\=bmaaaaaaaaaaaaaaaaaaaaaaaaa   \=baaaaaaa\kill \\
-\>Thibault 	\>Béziers La fosse		\>M1ALMA\\
-\>Dennis	\>Bordet			\>M1ALMA\\
-\>Joachim	\>Clayton			\>M1ALMA\\
-\>Alexis	\>Giraudet			\>M1ALMA\\
-\>Benjamin 	\>Moreau			\>M1ALMA\\
-
-
-\end{tabbing}
-
-\vspace{1cm}
 \section{Partie 1 : Complete Search}
-\vspace{2cm}
 
 \subsection {Définition}
 

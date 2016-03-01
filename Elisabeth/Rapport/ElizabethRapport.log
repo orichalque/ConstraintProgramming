@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.11.3)  1 MAR 2016 13:06
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.11.3)  1 MAR 2016 13:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -425,37 +425,12 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \openout3 = `ElizabethRapport.toc'.
 
  [2]
-
-! LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.70 C
-      e problème pose quelques problèmes, car il n'existe pas d'algorithme...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-! Double superscript.
-l.73 ...ir $64^8$ placements possibles, soit $2^4^
-                                                  8$, si bien qu'on arrive r...
-I treat `x^1^2' essentially like `x^1{}^2'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 73--75
-
- []
-
-[3]
-Overfull \hbox (12.16278pt too wide) in paragraph at lines 78--79
+Overfull \hbox (12.16278pt too wide) in paragraph at lines 77--78
 \T1/cmr/m/n/10 dras-ti-que-ment le nombre d'it�-ra-tions avant de trou-ver une 
 so-lu-tion. Les contraintes,
  []
 
-[4] [5] [6] (./ElizabethRapport.aux) ) 
+[3] [4] [5] (./ElizabethRapport.aux) ) 
 Here is how much of TeX's memory you used:
  2907 strings out of 494999
  38350 string characters out of 6180228
@@ -478,10 +453,10 @@ exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/font
 s/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on ElizabethRapport.pdf (6 pages, 190796 bytes).
+Output written on ElizabethRapport.pdf (5 pages, 182974 bytes).
 PDF statistics:
- 329 PDF objects out of 1000 (max. 8388607)
- 65 compressed objects within 1 object stream
+ 300 PDF objects out of 1000 (max. 8388607)
+ 63 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
