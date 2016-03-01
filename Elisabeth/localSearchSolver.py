@@ -1,5 +1,5 @@
 from abstractSolver import AbstractSolver
-from node import node
+from node import Node
 from problem import Problem
 
 

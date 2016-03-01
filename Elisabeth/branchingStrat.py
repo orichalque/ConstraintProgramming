@@ -1,7 +1,7 @@
 import abstractSolver
 from nQueenProblem import NQueenProblem
 from nQueenProblem import printNode
-from node import node
+from node import Node
 
 class BranchingStrat(abstractSolver.AbstractSolver):
         def __init__(self):
@@ -110,5 +110,5 @@ solutions = x.solve(z)
 #solutions=x.branch(z.node.domains)
 #solutions=x.pruneDiag(b)
 for sol in solutions:
-        printNode(node(sol))
+        printNode(Node(sol))
 #print ("***b apres :",b)
