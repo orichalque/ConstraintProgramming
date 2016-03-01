@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.11.3)  1 MAR 2016 13:57
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.11.3)  1 MAR 2016 18:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -315,38 +315,46 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \f@ncyO@olf=\skip53
 \f@ncyO@orf=\skip54
 )
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count92
+\float@exts=\toks17
+\float@box=\box26
+\@float@everytoks=\toks18
+\@floatcapt=\box27
+)
 (./ElizabethRapport.aux)
 \openout1 = `ElizabethRapport.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Info: Redefining \degres on input line 15.
-LaTeX Info: Redefining \dots on input line 15.
-LaTeX Info: Redefining \up on input line 15.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Info: Redefining \degres on input line 16.
+LaTeX Info: Redefining \dots on input line 16.
+LaTeX Info: Redefining \up on input line 16.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count92
+\scratchcounter=\count93
 \scratchdimen=\dimen108
-\scratchbox=\box26
-\nofMPsegments=\count93
-\nofMParguments=\count94
-\everyMPshowfont=\toks17
-\MPscratchCnt=\count95
+\scratchbox=\box28
+\nofMPsegments=\count94
+\nofMParguments=\count95
+\everyMPshowfont=\toks19
+\MPscratchCnt=\count96
 \MPscratchDim=\dimen109
-\MPnumerator=\count96
-\makeMPintoPDFobject=\count97
-\everyMPtoPDFconversion=\toks18
+\MPnumerator=\count97
+\makeMPintoPDFobject=\count98
+\everyMPtoPDFconversion=\toks20
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -396,20 +404,20 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 20.
+(Font)              <12> on input line 21.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 20.
+(Font)              <8> on input line 21.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 20.
+(Font)              <6> on input line 21.
 
-Overfull \hbox (9.06212pt too wide) in paragraph at lines 20--20
+Overfull \hbox (9.06212pt too wide) in paragraph at lines 21--21
  [][] 
  []
 
 <./picture/eli.jpg, id=1, 603.25375pt x 659.46375pt>
 File: ./picture/eli.jpg Graphic file (type jpg)
  <use ./picture/eli.jpg>
-Package pdftex.def Info: ./picture/eli.jpg used on input line 27.
+Package pdftex.def Info: ./picture/eli.jpg used on input line 28.
 (pdftex.def)             Requested size: 250.93842pt x 274.31636pt.
 
 [1
@@ -425,48 +433,78 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \openout3 = `ElizabethRapport.toc'.
 
  [2]
-Overfull \hbox (12.16278pt too wide) in paragraph at lines 77--78
+Overfull \hbox (12.16278pt too wide) in paragraph at lines 78--79
 \T1/cmr/m/n/10 dras-ti-que-ment le nombre d'ité-ra-tions avant de trou-ver une 
 so-lu-tion. Les contraintes,
  []
 
-[3] <./picture/pruning1.png, id=26, 279.0425pt x 246.9225pt>
+[3] [4] <./picture/pruning1.png, id=30, 279.0425pt x 246.9225pt>
 File: ./picture/pruning1.png Graphic file (type png)
 
 <use ./picture/pruning1.png>
-Package pdftex.def Info: ./picture/pruning1.png used on input line 112.
+Package pdftex.def Info: ./picture/pruning1.png used on input line 117.
 (pdftex.def)             Requested size: 139.5209pt x 123.46094pt.
 
+<./picture/pruning2.png, id=31, 275.0275pt x 245.91875pt>
+File: ./picture/pruning2.png Graphic file (type png)
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+<use ./picture/pruning2.png>
+Package pdftex.def Info: ./picture/pruning2.png used on input line 126.
+(pdftex.def)             Requested size: 137.51341pt x 122.95906pt.
+ [5
 
-[4] [5 <./picture/pruning1.png>] (./ElizabethRapport.aux) ) 
+ <./picture/pruning1.png> <./picture/pruning2.png>] <./picture/local1.png, id=3
+6, 505.89pt x 502.87875pt>
+File: ./picture/local1.png Graphic file (type png)
+
+<use ./picture/local1.png>
+Package pdftex.def Info: ./picture/local1.png used on input line 147.
+(pdftex.def)             Requested size: 151.76816pt x 150.86478pt.
+ [6 <./picture/local1.png>]
+<./picture/local2.png, id=40, 505.89pt x 503.8825pt>
+File: ./picture/local2.png Graphic file (type png)
+
+<use ./picture/local2.png>
+Package pdftex.def Info: ./picture/local2.png used on input line 157.
+(pdftex.def)             Requested size: 151.76816pt x 151.16591pt.
+
+<./picture/local3.png, id=41, 507.8975pt x 504.88625pt>
+File: ./picture/local3.png Graphic file (type png)
+
+<use ./picture/local3.png>
+Package pdftex.def Info: ./picture/local3.png used on input line 166.
+(pdftex.def)             Requested size: 152.37042pt x 151.46703pt.
+ [7
+
+ <./picture/local2.png> <./picture/local3.png>]
+[8] (./ElizabethRapport.aux) ) 
 Here is how much of TeX's memory you used:
- 2913 strings out of 494999
- 38473 string characters out of 6180228
- 101174 words of memory out of 5000000
- 6088 multiletter control sequences out of 15000+600000
- 14035 words of font info for 33 fonts, out of 8000000 for 9000
+ 3002 strings out of 494999
+ 39790 string characters out of 6180228
+ 101591 words of memory out of 5000000
+ 6168 multiletter control sequences out of 15000+600000
+ 14708 words of font info for 34 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 37i,10n,43p,545b,304s stack positions out of 5000i,500n,10000p,200000b,80000s
- </comptes/E104607D/
-.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk> </comptes/E104607D/.texm
-f-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </comptes/E104607D/.texmf-var
-/fonts/pk/ljfour/jknappen/ec/ecbx1000.600pk> </comptes/E104607D/.texmf-var/font
-s/pk/ljfour/jknappen/ec/ecbx1440.600pk> </comptes/E104607D/.texmf-var/fonts/pk/
-ljfour/jknappen/ec/ecsl1000.600pk> </comptes/E104607D/.texmf-var/fonts/pk/ljfou
-r/jknappen/ec/ecrm1000.600pk> </comptes/E104607D/.texmf-var/fonts/pk/ljfour/jkn
-appen/ec/ecrm0800.600pk> </comptes/E104607D/.texmf-var/fonts/pk/ljfour/jknappen
-/ec/ecrm1200.600pk> </comptes/E104607D/.texmf-var/fonts/pk/ljfour/jknappen/ec/e
-crm1728.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
-i10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on ElizabethRapport.pdf (5 pages, 189356 bytes).
+ 37i,10n,43p,545b,302s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </comptes/E104607D/.texmf-var/fonts/pk/ljfour/jk
+nappen/ec/eccc1000.600pk> </comptes/E104607D/.texmf-var/fonts/pk/ljfour/jknappe
+n/ec/ecti1000.600pk> </comptes/E104607D/.texmf-var/fonts/pk/ljfour/jknappen/ec/
+ecbx1200.600pk> </comptes/E104607D/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1
+000.600pk> </comptes/E104607D/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.6
+00pk> </comptes/E104607D/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsl1000.600pk>
+ </comptes/E104607D/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </co
+mptes/E104607D/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> </comptes
+/E104607D/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </comptes/E104
+607D/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmsy10.pfb>
+Output written on ElizabethRapport.pdf (8 pages, 239895 bytes).
 PDF statistics:
- 311 PDF objects out of 1000 (max. 8388607)
- 63 compressed objects within 1 object stream
+ 356 PDF objects out of 1000 (max. 8388607)
+ 75 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

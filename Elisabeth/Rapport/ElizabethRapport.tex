@@ -4,6 +4,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
 \usepackage{fancyhdr}
+\usepackage{float}
 
 \pagestyle{fancy}
 \title{Projet de Programmation par Contraintes : Élisabeth}
@@ -95,7 +96,7 @@ Les contraintes sont donc les suivantes:
 \end{itemize}
 
 
-\section{Partie 1 : Complete Search}
+\section{Complete Search}
 
 La recherche complète consiste à trouver toutes les solutions d'un problème, ou bien à prouver qu'il n'existe pas de solutions. 
 Pour effectuer cette recherche complète on utilise un algorithme de \emph{Branch \& Prune}, celui vu en cours. 
@@ -106,31 +107,102 @@ On assigne donc nos variables $x_i$ une par une et on retire les valeurs qui ne 
 
 Ainsi toutes les branches dans lesquelles toutes les variables sont assignées sont une solution. Et de cette manière, en récupérant tous ces assignements différents, on a autant de solutions pour notre problème. 
 
-\begin{figure}[h]
+\clearpage
 
+Dans l'exemple suivant, on assigne la variable montrée par la croix. Lors de notre pruning, on réduit donc du domaine des variables suivantes toutes les cases grisées, c'est à dire les cases sur la même colonne, et sur les diagonales, qui violent les contraintes. 
+https://thewalnut.io/app/release/11/ 
+\begin{figure}[h]
+\caption{\label{reine1} Première Reine}
 \begin{center}
 \includegraphics[scale=0.5]{./picture/pruning1.png}
 \end{center}
-\label{key}
 \end{figure}
 
-Dans l'exemple suivant, on assigne la variable montrée par la croix. Lors de notre pruning, on réduit donc du domaine des variables suivantes toutes les cases grisées, c'est à dire les cases sur la même colonne, et sur les diagonales. 
+On assigne ensuite une seconde variable, et on recommence tant que le domaine de la variable suivante n'est pas vide. Auquel cas la branche ne peut aboutir à une solution et on l'abandonne.
+
+\begin{figure}[h]
+\caption{\label{reine2} Seconde Reine}
+\begin{center}
+\includegraphics[scale=0.5]{./picture/pruning2.png}
+\end{center}
+\end{figure}
+
+Ainsi on peut trouver toutes les solutions possibles au problème des NQueens.
 
 
-\vspace{1cm}
-\section{Partie 2 : Local Search}
-\vspace{2cm}
+\section{Local Search}
 
-\subsection {Définition}
+La recherche locale de notre programme, par rapport à la recherche complète, s'arrête dès qu'elle trouve une solution au problème. L'algorithme implémenté se nomme
+\emph{min-conflicts algorithm}. 
 
-Le Local Search elle est une méthode qui 
+Pour trouver une solution, l'algorithme numérote chaque cellule de la ligne courante par le nombre de collision avec d'autres reines. C'est-à-dire, si une cellule se trouve sur la même ligne qu'une autre reine, La cellule a 1 pour valeur. Si elle est en plus à la diagonale d'une seconde reine, elle a 2 comme valeur.
+Ainsi pour placer nos reines, on choisira toujours les cases valant 0.
 
-\subsection {}
+Lorsque plusieurs cellules de la ligne courante ont 0 comme valeur, on choisira la première parcourue. On aurait pu aussi la choisir de manière aléatoire, mais afin d'améliorer le temps d'exécution c'est la première solution que nous avons choisi. 
 
 
-\vspace{1cm}
-\section{Conclusion}
-\vspace{2cm}
+\begin{figure}[!h]
+	\caption{\label{local1} Échiquier vide}
+	\begin{center}
+	\includegraphics[scale=0.3]{./picture/local1.png}
+	\end{center}
+\end{figure}
 
+Ainsi on commence par la première ligne, en ayant 0 comme valeur sur chaque cellule. 
+
+\clearpage
+\begin{figure}[!h]
+	\caption{\label{local2} Premier parcours}
+	\begin{center}
+	\includegraphics[scale=0.3]{./picture/local2.png}
+	\end{center}
+\end{figure}
+
+On place la première reine arbitrairement, on calcule ensuite l'indice de chaque cellule des lignes suivantes, jusqu'à avoir placé une reine sur chaque ligne. Si une ligne ne comporte pas de cellule indicée à 0, dans ce cas on place la reine sur l'indice minimum. 
+
+\begin{figure}[!h]
+	\caption{\label{local3} Retour en arrière}
+	\begin{center}
+	\includegraphics[scale=0.3]{./picture/local3.png}
+	\end{center}
+\end{figure}
+
+Enfin, lorsque la reine de la dernière ligne a été placée, on se rend sur la reine violant une contrainte la plus proche. On la déplace sur la cellule de la ligne qui a l'indice minimum. Si cette cellule n'est pas à 0, c'est qu'une nouvelle reine viole une contrainte, on se rend à nouveau sur cette reine, et on la déplace. On recommence tant que des contraintes sont violées. 
+
+\section{Résultats d'exécution}
+\subsection{Complete search}
+\begin{tabular}{|c|c|}
+\hline
+Taille de l'échiquier & Temps d'exécution \\
+1 & 0.03 millisecondes \\
+2 & 0.07 millisecondes \\
+3 & 0.10 millisecondes \\
+4 & 0.25 millisecondes \\
+5 & 0.79 millisecondes \\
+6 & 3.05 millisecondes \\
+7 & 13.5 millisecondes \\
+8 & 61.19 millisecondes \\
+9 & 283 millisecondes \\
+10 & 1.7 secondes \\
+11 & 7.8 secondes \\
+12 & 44 secondes \\
+\hline
+\end{tabular}
+\section{Sources}
+
+\begin{tabular}{|c|c|}
+\hline
+Image & Source \\
+\hline
+\ref{reine1} & http://www.cs.cornell.edu/~wdtseng/icpc/notes/bt2.pdf \\
+\ref{reine2} &  \\
+\hline
+\ref{local1} & \\
+\ref{local2} &  https://thewalnut.io/app/release/11/ \\
+\ref{local3} &  \\
+\hline
+\end{tabular}
+
+% \lfoot{\small{Source: http://www.cs.cornell.edu/~wdtseng/icpc/notes/bt2.pdf}}
 
 \end{document}
