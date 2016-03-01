@@ -1,17 +1,19 @@
 from abstractSolver import AbstractSolver
 from node import Node
+from nQueenProblem import NQueenProblem
 from problem import Problem
 
 
 class LocalSearchSolver(AbstractSolver):
-    def __init__(self, n, maxRestart, maxMove):
+    def __init__(self, maxRestart, maxMove):
         # store p last moves (avoid these moves)
-        self.n = n
         self.maxRestart = maxRestart
         self.maxMove = maxMove
+        self.lastMoves = []
 
     # return 1 if a solution is found else 0
     def solve(self, problem):  # localSearch
+        self.n = len(problem.initialNode().domains)
         if self.localSearch(problem, self.maxRestart, self.maxMove):
             return 1
         else:
@@ -28,12 +30,15 @@ class LocalSearchSolver(AbstractSolver):
         iter = True
         found = False
         move = 0
-        sol = self.generateRandom(self.n)
+        sol = self.generateRandom()
         while iter and move < maxMove:
+            printNode(Node(sol))
             if problem.testSat(Node(sol)):
+                print("satisfiable")
                 found = True
                 iter = False
             else:
+                print("not satisfiable")
                 (sol, iter) = self.doAmove(problem, sol)
             move = move + 1
         return found
@@ -44,18 +49,23 @@ class LocalSearchSolver(AbstractSolver):
     def doAmove(self, problem, sol):
         minCost = self.n
         minSol = {}
-        iter = True
+        iter = False
         grid = self.generateGrid(sol)
         for i in range(self.n):
             for j in range(i+1, self.n):
-                #conflict, must generate new solution
-                if sol[i] == sol[j] or sol[j] == [sol[i]+(j-i)] or sol[j] == [sol[i]-(j-i)]:
+                #conflict, must generate new move
+                [m] = sol[i]
+                if sol[i] == sol[j] or sol[j] == [m+(j-i)] or sol[j] == [m-(j-i)]:
                     (move, cost) = self.generateMove(sol, grid, i)
-                    if(cost < minCost):
+                    if cost < minCost and move not in self.lastMoves:
                         minSol = move
+                        iter = True
                     (move, cost) = self.generateMove(sol, grid, j)
-                    if(cost < minCost):
+                    if cost < minCost and move not in self.lastMoves:
                         minSol = move
+                        iter = True
+        if iter:
+            self.lastMoves.append(minSol)
         return (minSol, iter)
 
     def generateMove(self, sol, grid, m):
@@ -102,3 +112,24 @@ class LocalSearchSolver(AbstractSolver):
                 if m-(j-i) >= 0:
                     grid[j][m-(j-i)] += 1
         return domains
+
+def printNode(n):
+    arrayToPrint = []
+    print("Affichage de la solution")
+    for key, value in sorted(n.domains.items()):
+        line = ''
+        for i in range(len(n.domains)):
+            if i is value[0]:
+                line = line + b'\xe2\x99\x9b'.decode('utf-8') + ' '
+            else:
+                line = line + b'\xe2\x96\xa1'.decode('utf-8') + ' '
+        arrayToPrint.append(line)
+    for i in arrayToPrint:
+        print(i)
+
+solver = LocalSearchSolver(1, 1000)
+problem = NQueenProblem(10)
+solutions = solver.solve(problem)
+print(solutions)
+#for solution in solutions:
+#    printNode(Node(solution))
