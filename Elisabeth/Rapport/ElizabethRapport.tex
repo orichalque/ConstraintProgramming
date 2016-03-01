@@ -97,13 +97,24 @@ Les contraintes sont donc les suivantes:
 
 \section{Partie 1 : Complete Search}
 
-\subsection {Définition}
+La recherche complète consiste à trouver toutes les solutions d'un problème, ou bien à prouver qu'il n'existe pas de solutions. 
+Pour effectuer cette recherche complète on utilise un algorithme de \emph{Branch \& Prune}, celui vu en cours. 
 
-Le Complete Search est une méthode qui vise à rechercher une solution au problème en parcourant un arbre de possibilité progressivement remplie.
-Celui ci utilise un algorithms de backtracking.
+On part d'un nœud vide, et pour chaque possibilité d'assignement de la variable suivante on crée une branche, c'est le \emph{branching}.
 
-\subsection{}
+On assigne donc nos variables $x_i$ une par une et on retire les valeurs qui ne valident pas les contraintes du domaine des variables pour les branches suivantes, c'est le \emph{pruning}. S'il n'y a plus de valeur possible dans le domaine d'une variable, c'est que l'assignement ne valide pas les contraintes. On peut donc fermer la branche et passer à la suivante.
 
+Ainsi toutes les branches dans lesquelles toutes les variables sont assignées sont une solution. Et de cette manière, en récupérant tous ces assignements différents, on a autant de solutions pour notre problème. 
+
+\begin{figure}[h]
+
+\begin{center}
+\includegraphics[scale=0.5]{./picture/pruning1.png}
+\end{center}
+\label{key}
+\end{figure}
+
+Dans l'exemple suivant, on assigne la variable montrée par la croix. Lors de notre pruning, on réduit donc du domaine des variables suivantes toutes les cases grisées, c'est à dire les cases sur la même colonne, et sur les diagonales. 
 
 
 \vspace{1cm}
