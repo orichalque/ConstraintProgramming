@@ -2,6 +2,22 @@
 from problem import Problem
 from node import node
 
+#Pre: Une reine par ligne
+def printNode(n):
+	arrayToPrint = []
+	print("Affichage de la solution")
+	for key, value in sorted(n.domains.items()):
+		line = ''
+		for i in range(1, len(n.domains) + 1):
+			if i is value[0]:
+				line = line + b'\xe2\x99\x9b'.decode('utf-8') + ' '
+			else:
+				line = line + b'\xe2\x96\xa1'.decode('utf-8') + ' '
+		arrayToPrint.append(line)
+	
+	for i in arrayToPrint:
+		print(i)
+
 class NQueenProblem(Problem):
 	#__metaclass__ = ABCMeta
 
@@ -54,13 +70,13 @@ class NQueenProblem(Problem):
 		
 		for i in arrayToPrint:
 			print(i)
-		
+	
 	def printNode(self):
 		self.node.printTree()	
 
 
-n = NQueenProblem(5)
-n.printNode()
+p = node({'1': [1], '2': [2], '3': [3] , '4': [4] , '5': [5]},[])
+printNode(p)
 
 #print(n.testSat(node({'1': [3], '2': [1], '3': [4], '4': [2]},[])))
 
