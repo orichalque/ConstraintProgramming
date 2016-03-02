@@ -45,6 +45,7 @@ class LocalSearchSolver(AbstractSolver):
         return self.problem.testSat()
 
     def doAmove(self, sol):
+        lastQueens = []
         minSol = None
         minCost = self.n
         grid = self.generateGrid(sol)
@@ -53,12 +54,20 @@ class LocalSearchSolver(AbstractSolver):
                 #conflict, must generate new move
                 [m] = sol[i]
                 if sol[i] == sol[j] or sol[j] == [m+(j-i)] or sol[j] == [m-(j-i)]:
-                    (move, cost) = self.generateMove(sol, grid, i)
-                    if cost < minCost and move not in self.lastMoves:
-                        minSol = move
-                    (move, cost) = self.generateMove(sol, grid, j)
-                    if cost < minCost and move not in self.lastMoves:
-                        minSol = move
+                    if i not in lastQueens:
+                        lastQueens.append(i)
+                        #for (move, cost) in self.generateMoves(sol, grid, i):
+                        (move, cost) = self.generateMove(sol, grid, i)
+                        if cost < minCost and move not in self.lastMoves:
+                            minCost = cost
+                            minSol = move
+                    if j not in lastQueens:
+                        lastQueens.append(j)
+                        #for (move, cost) in self.generateMoves(sol, grid, j):
+                        (move, cost) = self.generateMove(sol, grid, j)
+                        if cost < minCost and move not in self.lastMoves:
+                            minCost = cost
+                            minSol = move
         if minSol is not None:
             #set maxLastMoves
             self.lastMoves.append(minSol)
@@ -136,6 +145,7 @@ for i in range(1, 100):
     solutions = solver.solve(problem)
     if not solutions:
         print(i, "no solution")
-    #for solution in solutions:
-    #    printNode(Node(solution))
-    #    print()
+    #else:
+    #    for solution in solutions:
+    #        printNode(Node(solution))
+    #        print()
