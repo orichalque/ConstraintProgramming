@@ -2,7 +2,7 @@ from abstractSolver import AbstractSolver
 from node import Node
 from nQueenProblem import NQueenProblem
 from problem import Problem
-
+from random import choice
 
 class LocalSearchSolver(AbstractSolver):
     def __init__(self, maxRestart, maxMove):
@@ -13,37 +13,38 @@ class LocalSearchSolver(AbstractSolver):
 
     # return 1 if a solution is found else 0
     def solve(self, problem):  # localSearch
+        self.problem = problem
         self.n = len(problem.initialNode().domains)
         solutions = []
-        sol = self.localSearch(problem, self.maxRestart, self.maxMove)
+        sol = self.localSearch()
         if sol is not None:
             solutions.append(sol)
         return solutions
 
-    def localSearch(self, problem, maxRestart, maxMove):
+    def localSearch(self):
         sol = None
         restart = 0
-        while restart < maxRestart:
+        while restart < self.maxRestart:
             if sol is not None:
                 break
-            sol = self.localSearchRun(problem, maxMove)
+            sol = self.localSearchRun()
             restart = restart + 1
         return sol
 
-    def localSearchRun(self, problem, maxMove):
+    def localSearchRun(self):
         sol = self.generateRandom()
         move = 0
-        while move < maxMove:
-            if sol is None or problem.testSat(Node(sol)):
+        while move < self.maxMove:
+            if sol is None or self.problem.testSat(Node(sol)):
                 break
-            sol = self.doAmove(problem, sol)
+            sol = self.doAmove(sol)
             move += 1
         return sol
 
-    def isSolution(self, problem, sol):
-        return problem.testSat()
+    def isSolution(self, sol):
+        return self.problem.testSat()
 
-    def doAmove(self, problem, sol):
+    def doAmove(self, sol):
         minSol = None
         minCost = self.n
         grid = self.generateGrid(sol)
@@ -90,13 +91,21 @@ class LocalSearchSolver(AbstractSolver):
                     grid[j][m-abs(j-i)] += 1
         return grid
 
+    def find(self, l, e):
+        ids = []
+        i = 0
+        for v in l:
+            if v == e:
+                ids.append(i)
+            i += 1
+        return ids
+
     def generateRandom(self):
-        domains = {}
+        sol = {}
         grid = [[0 for x in range(self.n)] for x in range(self.n)]
         for i in range(self.n):
-            #randomize?
-            m = grid[i].index(min(grid[i]))
-            domains[i] = [m]
+            m = choice(self.find(grid[i], min(grid[i])))
+            sol[i] = [m]
             for j in range(i+1, self.n):
                 #vertical
                 grid[j][m] += 1
@@ -106,7 +115,7 @@ class LocalSearchSolver(AbstractSolver):
                 #bot diagonal
                 if m-(j-i) >= 0:
                     grid[j][m-(j-i)] += 1
-        return domains
+        return sol
 
 def printNode(n):
     arrayToPrint = []
@@ -122,9 +131,11 @@ def printNode(n):
         print(i)
 
 for i in range(1, 100):
-    solver = LocalSearchSolver(1, i*i)
+    solver = LocalSearchSolver(i, i*i)
     problem = NQueenProblem(i)
     solutions = solver.solve(problem)
-    for solution in solutions:
-        printNode(Node(solution))
-        print()
+    if not solutions:
+        print(i, "no solution")
+    #for solution in solutions:
+    #    printNode(Node(solution))
+    #    print()
