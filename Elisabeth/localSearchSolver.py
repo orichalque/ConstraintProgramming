@@ -14,42 +14,38 @@ class LocalSearchSolver(AbstractSolver):
     # return 1 if a solution is found else 0
     def solve(self, problem):  # localSearch
         self.n = len(problem.initialNode().domains)
-        if self.localSearch(problem, self.maxRestart, self.maxMove):
-            return 1
-        else:
-            return 0
+        solutions = []
+        sol = self.localSearch(problem, self.maxRestart, self.maxMove)
+        if sol is not None:
+            solutions.append(sol)
+        return solutions
 
     def localSearch(self, problem, maxRestart, maxMove):
-        found = False
+        sol = None
         restart = 0
-        while not found and restart < maxRestart:
-            found = self.localSearchRun(problem, maxMove)
+        while restart < maxRestart:
+            if sol is not None:
+                break
+            sol = self.localSearchRun(problem, maxMove)
             restart = restart + 1
+        return sol
 
     def localSearchRun(self, problem, maxMove):
-        iter = True
-        found = False
-        move = 0
         sol = self.generateRandom()
-        while iter and move < maxMove:
-            printNode(Node(sol))
-            if problem.testSat(Node(sol)):
-                print("satisfiable")
-                found = True
-                iter = False
-            else:
-                print("not satisfiable")
-                (sol, iter) = self.doAmove(problem, sol)
-            move = move + 1
-        return found
+        move = 0
+        while move < maxMove:
+            if sol is None or problem.testSat(Node(sol)):
+                break
+            sol = self.doAmove(problem, sol)
+            move += 1
+        return sol
 
     def isSolution(self, problem, sol):
         return problem.testSat()
 
     def doAmove(self, problem, sol):
+        minSol = None
         minCost = self.n
-        minSol = {}
-        iter = False
         grid = self.generateGrid(sol)
         for i in range(self.n):
             for j in range(i+1, self.n):
@@ -59,14 +55,13 @@ class LocalSearchSolver(AbstractSolver):
                     (move, cost) = self.generateMove(sol, grid, i)
                     if cost < minCost and move not in self.lastMoves:
                         minSol = move
-                        iter = True
                     (move, cost) = self.generateMove(sol, grid, j)
                     if cost < minCost and move not in self.lastMoves:
                         minSol = move
-                        iter = True
-        if iter:
+        if minSol is not None:
+            #set maxLastMoves
             self.lastMoves.append(minSol)
-        return (minSol, iter)
+        return minSol
 
     def generateMove(self, sol, grid, m):
         cost = 0
@@ -115,7 +110,6 @@ class LocalSearchSolver(AbstractSolver):
 
 def printNode(n):
     arrayToPrint = []
-    print("Affichage de la solution")
     for key, value in sorted(n.domains.items()):
         line = ''
         for i in range(len(n.domains)):
@@ -127,9 +121,10 @@ def printNode(n):
     for i in arrayToPrint:
         print(i)
 
-solver = LocalSearchSolver(1, 1000)
-problem = NQueenProblem(10)
-solutions = solver.solve(problem)
-print(solutions)
-#for solution in solutions:
-#    printNode(Node(solution))
+for i in range(1, 100):
+    solver = LocalSearchSolver(1, i*i)
+    problem = NQueenProblem(i)
+    solutions = solver.solve(problem)
+    for solution in solutions:
+        printNode(Node(solution))
+        print()
