@@ -1,18 +1,21 @@
 from abstractSolver import AbstractSolver
+from collections import deque
+from copy import copy
 from node import Node
 from nQueenProblem import NQueenProblem
 from problem import Problem
 from random import choice
 
 class LocalSearchSolver(AbstractSolver):
-    def __init__(self, maxRestart, maxMove):
-        # store p last moves (avoid these moves)
+    def __init__(self, maxRestart, maxMove, maxLastMoves = -1):
         self.maxRestart = maxRestart
         self.maxMove = maxMove
-        self.lastMoves = []
+        if maxLastMoves < 0:
+            self.lastMoves = []
+        else:
+            self.lastMoves = deque([], maxLastMoves)
 
-    # return 1 if a solution is found else 0
-    def solve(self, problem):  # localSearch
+    def solve(self, problem):
         self.problem = problem
         self.n = len(problem.initialNode().domains)
         solutions = []
@@ -32,7 +35,7 @@ class LocalSearchSolver(AbstractSolver):
         return sol
 
     def localSearchRun(self):
-        sol = self.generateRandom()
+        sol = self.generateRandomStart()
         move = 0
         while move < self.maxMove:
             if sol is None or self.problem.testSat(Node(sol)):
@@ -51,39 +54,42 @@ class LocalSearchSolver(AbstractSolver):
         grid = self.generateGrid(sol)
         for i in range(self.n):
             for j in range(i+1, self.n):
-                #conflict, must generate new move
                 [m] = sol[i]
                 if sol[i] == sol[j] or sol[j] == [m+(j-i)] or sol[j] == [m-(j-i)]:
-                    if i not in lastQueens:
-                        lastQueens.append(i)
-                        #for (move, cost) in self.generateMoves(sol, grid, i):
-                        (move, cost) = self.generateMove(sol, grid, i)
-                        if cost < minCost and move not in self.lastMoves:
-                            minCost = cost
-                            minSol = move
-                    if j not in lastQueens:
-                        lastQueens.append(j)
-                        #for (move, cost) in self.generateMoves(sol, grid, j):
-                        (move, cost) = self.generateMove(sol, grid, j)
-                        if cost < minCost and move not in self.lastMoves:
-                            minCost = cost
-                            minSol = move
+                    for q in [i, j]:
+                        if q not in lastQueens:
+                            lastQueens.append(q)
+                            for (move, cost) in self.generateRandomMove(sol, grid, q):
+                                if cost < minCost and move not in self.lastMoves:
+                                    minCost = cost
+                                    minSol = move
         if minSol is not None:
             #set maxLastMoves
             self.lastMoves.append(minSol)
         return minSol
 
-    def generateMove(self, sol, grid, m):
-        cost = 0
-        move = {}
-        for i in range(self.n):
-            if i == m:
-                cost = grid[i][m]
-                move[i] = [grid[i].index(min(grid[i]))]
-            else:
-                move[i] = sol[i]
-        return (move, cost)
+    def generateMove(self, sol, grid, q):
+        m = grid[q].index(min(grid[q]))
+        cost = grid[q][m]
+        move = copy(sol)
+        move[q] = [m]
+        return [(move, cost)]
 
+    def generateAllMove(self, sol, grid, q):
+        moves = []
+        for m in self.find(grid[q], min(grid[q])):
+            cost = grid[q][m]
+            move = copy(sol)
+            move[q] = [m]
+            moves.append((move,cost))
+        return moves
+
+    def generateRandomMove(self, sol, grid, q):
+        m = choice(self.find(grid[q], min(grid[q])))
+        cost = grid[q][m]
+        move = copy(sol)
+        move[q] = [m]
+        return [(move, cost)]
 
     def generateGrid(self, sol):
         grid = [[0 for x in range(self.n)] for x in range(self.n)]
@@ -101,15 +107,13 @@ class LocalSearchSolver(AbstractSolver):
         return grid
 
     def find(self, l, e):
-        ids = []
-        i = 0
-        for v in l:
-            if v == e:
-                ids.append(i)
-            i += 1
-        return ids
+        indexes = []
+        for (i, x) in enumerate(l):
+            if x == e:
+                indexes.append(i)
+        return indexes
 
-    def generateRandom(self):
+    def generateRandomStart(self):
         sol = {}
         grid = [[0 for x in range(self.n)] for x in range(self.n)]
         for i in range(self.n):
