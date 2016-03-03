@@ -1,4 +1,4 @@
-# -*-coding:utf-8 -*
+# coding=utf-8
 from abstractProblem import AbstractProblem
 from node import Node
 
@@ -20,7 +20,7 @@ def printNode(n):
         print(i)
 
 
-class NQueenProblem(AbstractProblem):
+class NQueensProblem(AbstractProblem):
     # __metaclass__ = ABCMeta
 
     def __init__(self, n):

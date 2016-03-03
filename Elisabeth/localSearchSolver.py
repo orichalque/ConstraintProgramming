@@ -1,3 +1,4 @@
+# coding=utf-8
 from abstractSolver import AbstractSolver
 from collections import deque
 from copy import copy
