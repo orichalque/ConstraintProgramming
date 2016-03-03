@@ -1,9 +1,6 @@
 from abstractSolver import AbstractSolver
 from collections import deque
 from copy import copy
-from node import Node
-from nQueenProblem import NQueenProblem
-from problem import Problem
 from random import choice
 
 
@@ -16,37 +13,36 @@ class LocalSearchSolver(AbstractSolver):
         else:
             self.lastMoves = deque([], maxLastMoves)
 
-    def solve(self, problem):
-        self.problem = problem
-        self.n = len(problem.initialNode().domains)
-        solutions = []
-        sol = self.localSearch()
-        if sol is not None:
-            solutions.append(sol)
-        return solutions
+    def solve(self, n):
+        self.n = n
+        self.solutions = []
+        self.localSearch()
+        return self.solutions
 
     def localSearch(self):
-        sol = None
+        found = False
         restart = 0
-        while restart < self.maxRestart:
-            if sol is not None:
-                break
-            sol = self.localSearchRun()
+        while not found and restart < self.maxRestart:
+            found = self.localSearchRun()
             restart = restart + 1
-        return sol
+        return found
 
     def localSearchRun(self):
-        sol = self.generateRandomStart()
+        iter = True
+        found = False
         move = 0
-        while move < self.maxMove:
-            if sol is None or self.isSolution(sol):
-                break
-            sol = self.doAmove(sol)
+        sol = self.generateRandomStart()
+        while iter and move < self.maxMove:
+            if self.isSolution(sol):
+                found = True
+                iter = False
+                self.solutions.append(sol)
+            else:
+                (sol, iter) = self.doAmove(sol)
             move += 1
-        return sol
+        return found
 
     def isSolution(self, sol):
-        #return self.problem.testSat(Node(sol))
         for i in range(self.n):
             [mi] = sol[i]
             for j in range(i + 1, self.n):
@@ -56,6 +52,7 @@ class LocalSearchSolver(AbstractSolver):
         return True
 
     def doAmove(self, sol):
+        iter = False
         lastQueens = []
         minSol = None
         minCost = self.n
@@ -71,11 +68,12 @@ class LocalSearchSolver(AbstractSolver):
                                 if cost < minCost and move not in self.lastMoves:
                                     minCost = cost
                                     minSol = move
-        if minSol is not None:
+                                    iter = True
+        if iter:
             self.lastMoves.append(minSol)
-        return minSol
+        return (minSol, iter)
 
-    def generateMove(self, sol, grid, q):
+    def generateSimpleMove(self, sol, grid, q):
         m = grid[q].index(min(grid[q]))
         cost = grid[q][m]
         move = copy(sol)
@@ -151,11 +149,10 @@ def printNode(n):
     for i in arrayToPrint:
         print(i)
 
-for i in range(10):
+for i in range(1000):
     print("Solving {}-queens problem:".format(i))
     solver = LocalSearchSolver(i, i*i)
-    problem = NQueenProblem(i)
-    solutions = solver.solve(problem)
+    solutions = solver.solve(i)
     if solutions:
         print("success")
     else:
