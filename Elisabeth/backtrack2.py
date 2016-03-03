@@ -1,11 +1,12 @@
-# coding=utf-8
-from abstractSolver import AbstractSolver
+# -*- coding: utf-8 -*-
+import abstractSolver
+from nQueenProblem import NQueenProblem
+from nQueenProblem import printNode
 from node import Node
 
-
-class BacktrackingSolver(AbstractSolver):
-    def __init__(self):
-        pass
+class BackTrack2(abstractSolver.AbstractSolver):
+        def __init__(self):
+                return None
 
 	#fonction principale, resoud le probleme entierement		
         def solve(self, problem):
@@ -58,3 +59,15 @@ class BacktrackingSolver(AbstractSolver):
                         domains.update({clef_min:[elem]})
                         ens_domains_res.append(dict(domains))              
                 return ens_domains_res
+
+#a={1: [1,2,3,4], 2: [1,2,3,4], 3:[2], 4:[1,2,3,4]}
+#b ={'5': [2, 3, 4], '1': [1], '3': [2, 4, 5], '4': [2, 3, 5], '2': [3]}
+#b=a
+#x = BackTrack2()
+#z = NQueenProblem(7)
+#solutions = x.solve(z)
+#solutions=x.branch(z.node.domains)
+#solutions=x.pruneDiag(b)
+#for sol in solutions:
+#        printNode(Node(sol))
+#print ("***b apres :",b)
