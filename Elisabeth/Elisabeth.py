@@ -4,7 +4,7 @@ from nQueenProblem import NQueenProblem
 from nQueenProblem import printNode
 from backTrackingAlgo import BackTrackingAlgorithm
 from branchingStrat import BranchingStrat
-from localSearchSolver import LocalSearchSolver
+from localSearchSolver import LocalSearchSolver, printSol
 from node import Node
 import time
 
@@ -40,3 +40,15 @@ for sol in solutions:
 print("---%d solutions ---" % cpt)
 print("---temps d'execution : %s millisecondes ---" % round(time,4))
 
+## LocalSearchSolver example
+#for i in range(500):
+#	print("Solving {}-queens problem:".format(i))
+#	solver = LocalSearchSolver(i, i * i)
+#	solutions = solver.solve(i)
+#	if solutions:
+#		print("success")
+#		for sol in solutions:
+#			printSol(sol)
+#	else:
+#		print("failure")
+#	print()
