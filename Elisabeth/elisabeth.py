@@ -13,11 +13,12 @@ def main():
     while (N < 1):
         N = int(input("Rentrer la taille du damier (>0)"))
     # instanciation du probleme
-    problem = NQueensProblem(N)
     choix = 0
     while (choix != 1) and (choix != 2):
         choix = int(input("Rentrer un entier :  1:Complete        2:Locale           :"))
     if choix == 1:
+        problem = NQueensProblem(N)
+        print_function = printNode
         choix = 0
         while (choix != 1) and (choix != 2):
             choix = int(input("Rentrer un entier :  1:Backtracking    2:Branche & prune  :"))
@@ -27,33 +28,26 @@ def main():
         else:
             algorithm = BranchingSolver()
     else:
-        algorithm = LocalSearchSolver()
+        problem = N
+        print_function = printSol
+        algorithm = LocalSearchSolver(N, N * N)
     # lancement timer
     start_time = time()
     # resolution probleme
     solutions = algorithm.solve(problem)
     # arret timer
-    t = (time() - start_time) * 1000
+    end_time = time()
+    t = (end_time - start_time) * 1000
     cpt = 0
     for sol in solutions:
         cpt = cpt + 1
-        printNode(Node(sol))
+        if print_function == printNode:
+            print_function(Node(sol))
+        elif print_function == printSol:
+            print_function(sol)
     print("---%d solutions ---" % cpt)
     print("---temps d'execution : %s millisecondes ---" % round(t, 4))
 
 
 if __name__ == "__main__":
     main()
-
-## LocalSearchSolver example
-# for i in range(500):
-#	print("Solving {}-queens problem:".format(i))
-#	solver = LocalSearchSolver(i, i * i)
-#	solutions = solver.solve(i)
-#	if solutions:
-#		print("success")
-#		for sol in solutions:
-#			printSol(sol)
-#	else:
-#		print("failure")
-#	print()
