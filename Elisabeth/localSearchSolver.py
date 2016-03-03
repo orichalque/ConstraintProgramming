@@ -9,6 +9,9 @@ class LocalSearchSolver(AbstractSolver):
         self.maxRestart = maxRestart
         self.maxMove = maxMove
         self.maxLastMoves = maxLastMoves
+        self.lastMoves = None
+        self.solutions = None
+        self.n = None
 
     def solve(self, n):
         self.n = n
@@ -55,7 +58,7 @@ class LocalSearchSolver(AbstractSolver):
     def doAmove(self, sol):
         iter = False
         lastQueens = []
-        minSol = None
+        minSol = {}
         minCost = self.n
         grid = self.generateGrid(sol)
         for i in range(self.n):
