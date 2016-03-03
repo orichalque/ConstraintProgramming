@@ -6,14 +6,20 @@ from node import Node
 class BranchingStrat(abstractSolver.AbstractSolver):
         def __init__(self):
                 return None
-			
+
+	#Fonction de résolution principale		
         def solve(self, problem):
                 sol = list()
                 self.branchAndPruneRec(problem, problem.node.domains,sol)
                 return sol
-				
+
+	#fonction recursive ajoutant les solutions dans la liste "solutions"		
         def branchAndPruneRec(self, problem, domains, solutions):
+
+                #pruning sur les domaines actuels
                 dom= self.pruneDiag(domains)
+
+                #on verifie que chaque variable pruné a toujours une affectation possible -> sinon on arrete la fonction pour cette branche
                 for clef in dom:
                         if len(dom[clef])==0:
                                 return []
@@ -21,20 +27,19 @@ class BranchingStrat(abstractSolver.AbstractSolver):
                 if self.estSolution(dom):
                         solutions.append(dom)
                 else:
-                        #print ("_____domains",domains)
+                        #on fait des branches pour chaque element du domaine de la variable ayant le plus petit domaine
                         for domainsBis in self.branch(dom):
-                                #print("___domainsbis________", domainsBis)
-                                self.branchAndPruneRec(problem,dict(domainsBis),solutions)
+                                self.branchAndPruneRec(problem,dict(domainsBis),solutions)#copie du dictionnaire pour éviter les problèmes dans la recursion (plusieurs branche travaillerai sur le meme)
                         
 
-        #prunage simple : si on a une affectation, on enleve la valeur du domaine de chaque variable
         
         def estSolution(self, domains):
                 for clef in domains:
                         if len(domains[clef])!=1:
                                 return False
                 return True
-			
+        
+	#prunage simple : si on a une affectation, on enleve la valeur du domaine de chaque variable		
         def pruneSimple(self, domains):
                 for clef in domains:
                         if len(domains[clef])==1:
@@ -46,6 +51,7 @@ class BranchingStrat(abstractSolver.AbstractSolver):
         
         #prunage Diag : si on a une affectation, on enleve des autres variables les diagonales déja affectées et la valeur
         # prunage simple + prunage en diagonale.
+        #en supposant qu'on connait deja le probleme(Nqueens)
         def pruneDiag(self, domainsGlob):
                 domains=dict(domainsGlob)
                 clefs = sorted(domains)
@@ -67,23 +73,26 @@ class BranchingStrat(abstractSolver.AbstractSolver):
                                                 if domains[clef_j].count(val_to_del + offset) !=0:
                                                         domains[clef_j].remove(val_to_del + offset)
                 return domains
-                
+        
+        #renvoie la clef correspondant au domaine le plus petit du dico    
         def find_min(self,dico):
+                #on prend le premier élément comme etant le plus petit
                 min_clef =sorted(dico)[0]
+                #on cherche une clef qui aurait plus de 1 element dans son domaine (si on branche un domaine d'un élément cela ne nous servirait a rien)
                 for clef in sorted(dico):
-                        #print("longueur :",len(dico[clef]))
                         if (len(dico[clef]) >1):
                               min_clef = clef
                               break
-                #print([min_clef])
                 min_domaine = dico[min_clef]
                 min_taille_domaine = len(min_domaine)
+
+                #recherche du minimum
                 for clef in dico:
                         domaine = dico[clef]
                         taille_domaine = len(domaine)
-                        #print ("clef : ", [clef], " -taille_domaine :", taille_domaine, " -domaine :", domaine)
+
+                        #domaine plus grand que 1 mais on veut le plus petit quand meme
                         if(taille_domaine<min_taille_domaine and taille_domaine!=1 and taille_domaine !=0):
-                                #print ("clef : ", clef, " -taille_domaine :", taille_domaine, " -domaine :", domaine)
                                 min_clef=clef
                                 min_domaine = domaine
                                 min_taille_domaine = taille_domaine
@@ -94,21 +103,26 @@ class BranchingStrat(abstractSolver.AbstractSolver):
                 ens_domains_res=[]
                 clef_min = self.find_min(domains)
                 branches = domains[clef_min]
-                #print ("branches",branches)
+
+                #pour chaque element du domaine de la variable aillant le plus petit domaine :
+                #on creer un nouveau domaine ayant 1 seul élément pour cette variable puis on l'ajoute dans un ensemble
                 for elem in branches:
-                        #print ("elem : ", elem)
+                        #update modifie la valeur de cle_min à [elem] dans le dico domains
                         domains.update({clef_min:[elem]})
-                        ens_domains_res.append(dict(domains))              
+                        ens_domains_res.append(dict(domains)) #recopie du domaine dans un nouveau dictionnaire             
                 return ens_domains_res
 
-a={1: [1,2,3,4], 2: [1,2,3,4], 3:[2], 4:[1,2,3,4]}
-b ={'5': [2, 3, 4], '1': [1], '3': [2, 4, 5], '4': [2, 3, 5], '2': [3]}
+
+
+#-----------------tests------------------------
+#a={1: [1,2,3,4], 2: [1,2,3,4], 3:[2], 4:[1,2,3,4]}
+#b ={'5': [2, 3, 4], '1': [1], '3': [2, 4, 5], '4': [2, 3, 5], '2': [3]}
 #b=a
-x = BranchingStrat()
-z = NQueenProblem(5)
-solutions = x.solve(z)
+#x = BranchingStrat()
+#z = NQueenProblem(5)
+#solutions = x.solve(z)
 #solutions=x.branch(z.node.domains)
 #solutions=x.pruneDiag(b)
-for sol in solutions:
-        printNode(Node(sol))
+#for sol in solutions:
+#        printNode(Node(sol))
 #print ("***b apres :",b)
