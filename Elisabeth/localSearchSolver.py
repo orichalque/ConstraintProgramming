@@ -3,6 +3,7 @@ from abstractSolver import AbstractSolver
 from collections import deque
 from copy import copy
 from random import choice
+from time import time
 
 
 class LocalSearchSolver(AbstractSolver):
@@ -146,3 +147,14 @@ def printSol(sol):
     for value in sol.values():
         print((b"\xe2\x96\xa1".decode("utf-8") + " ") * value + b"\xe2\x99\x9b".decode("utf-8") + (
             " " + b"\xe2\x96\xa1".decode("utf-8")) * (len(sol) - value - 1))
+
+
+def nTimeSolCSV(nRange):
+    print("n; t; s")
+    for n in nRange:
+        solver = LocalSearchSolver(n, n * n)
+        start_time = time()
+        solutions = solver.solve(n)
+        end_time = time()
+        t = round((end_time - start_time) * 1000)
+        print("{}; {}; {}".format(n, t, len(solutions)))
