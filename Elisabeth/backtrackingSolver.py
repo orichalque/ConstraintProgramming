@@ -3,7 +3,7 @@ from abstractSolver import AbstractSolver
 from node import Node
 
 
-class BackTrack2(AbstractSolver):
+class BacktrackingSolver(AbstractSolver):
     def __init__(self):
         pass
 

@@ -2,9 +2,9 @@
 from abstractSolver import AbstractSolver
 
 
-class BranchingStrat(AbstractSolver):
+class BranchingSolver(AbstractSolver):
     def __init__(self):
-        return None
+        pass
 
     def solve(self, problem):
         sol = list()
