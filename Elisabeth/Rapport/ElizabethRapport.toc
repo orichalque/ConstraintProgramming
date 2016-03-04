@@ -2,11 +2,13 @@
 \contentsline {section}{\numberline {1}Introduction}{3}
 \contentsline {subsection}{\numberline {1.1}Probl\IeC {\'e}matique et but du projet}{3}
 \contentsline {subsection}{\numberline {1.2}Probl\IeC {\`e}me des N-Queens}{3}
-\contentsline {subsubsection}{\numberline {1.2.1}Contraintes}{4}
+\contentsline {subsection}{\numberline {1.3}Contraintes}{4}
 \contentsline {section}{\numberline {2}Complete Search}{4}
+\contentsline {subsection}{\numberline {2.1}Branch \& Prune}{4}
+\contentsline {subsection}{\numberline {2.2}Backtracking}{5}
 \contentsline {section}{\numberline {3}Local Search}{6}
 \contentsline {section}{\numberline {4}R\IeC {\'e}sultats d'ex\IeC {\'e}cution}{8}
 \contentsline {subsection}{\numberline {4.1}Complete search}{8}
-\contentsline {subsection}{\numberline {4.2}Local search}{8}
+\contentsline {subsection}{\numberline {4.2}Local search}{9}
 \contentsline {section}{\numberline {5}Conclusion}{9}
 \contentsline {section}{\numberline {6}Sources}{9}

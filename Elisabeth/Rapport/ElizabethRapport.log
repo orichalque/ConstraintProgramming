@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.11.3)  4 MAR 2016 16:55
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.11.3)  4 MAR 2016 17:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -438,110 +438,115 @@ Overfull \hbox (12.16278pt too wide) in paragraph at lines 78--79
 so-lu-tion. Les contraintes,
  []
 
-[4] <./picture/pruning1.png, id=29, 279.0425pt x 246.9225pt>
+[4] <./picture/pruning1.png, id=30, 279.0425pt x 246.9225pt>
 File: ./picture/pruning1.png Graphic file (type png)
 
 <use ./picture/pruning1.png>
-Package pdftex.def Info: ./picture/pruning1.png used on input line 117.
+Package pdftex.def Info: ./picture/pruning1.png used on input line 118.
 (pdftex.def)             Requested size: 139.5209pt x 123.46094pt.
 
-<./picture/pruning2.png, id=30, 275.0275pt x 245.91875pt>
+<./picture/pruning2.png, id=31, 275.0275pt x 245.91875pt>
 File: ./picture/pruning2.png Graphic file (type png)
 
 <use ./picture/pruning2.png>
-Package pdftex.def Info: ./picture/pruning2.png used on input line 126.
+Package pdftex.def Info: ./picture/pruning2.png used on input line 127.
 (pdftex.def)             Requested size: 137.51341pt x 122.95906pt.
- [5
 
- <./picture/pruning1.png> <./picture/pruning2.png>] <./picture/complete_4.png, 
-id=35, 410.53375pt x 196.735pt>
+<./picture/complete_4.png, id=32, 410.53375pt x 196.735pt>
 File: ./picture/complete_4.png Graphic file (type png)
 
 <use ./picture/complete_4.png>
-Package pdftex.def Info: ./picture/complete_4.png used on input line 136.
+Package pdftex.def Info: ./picture/complete_4.png used on input line 142.
 (pdftex.def)             Requested size: 205.26637pt x 98.36725pt.
-
-<./picture/local1.png, id=36, 505.89pt x 502.87875pt>
-File: ./picture/local1.png Graphic file (type png)
-
-<use ./picture/local1.png>
-Package pdftex.def Info: ./picture/local1.png used on input line 154.
-(pdftex.def)             Requested size: 151.76816pt x 150.86478pt.
- [6
-
- <./picture/complete_4.png> <./picture/local1.png>] <./picture/local2.png, id=4
-0, 505.89pt x 503.8825pt>
-File: ./picture/local2.png Graphic file (type png)
-
-<use ./picture/local2.png>
-Package pdftex.def Info: ./picture/local2.png used on input line 163.
-(pdftex.def)             Requested size: 151.76816pt x 151.16591pt.
-
-<./picture/local3.png, id=41, 507.8975pt x 504.88625pt>
-File: ./picture/local3.png Graphic file (type png)
-
-<use ./picture/local3.png>
-Package pdftex.def Info: ./picture/local3.png used on input line 172.
-(pdftex.def)             Requested size: 152.37042pt x 151.46703pt.
-
-<./picture/local_4.png, id=42, 407.5225pt x 97.36375pt>
-File: ./picture/local_4.png Graphic file (type png)
-
-<use ./picture/local_4.png>
-Package pdftex.def Info: ./picture/local_4.png used on input line 181.
-(pdftex.def)             Requested size: 203.76074pt x 48.68175pt.
- [7 <./picture/local2.png> <./picture/local3.png>]
-<./picture/compelte_search.png, id=47, 455.45157pt x 255.95625pt>
-File: ./picture/compelte_search.png Graphic file (type png)
-
-<use ./picture/compelte_search.png>
-Package pdftex.def Info: ./picture/compelte_search.png used on input line 190.
-(pdftex.def)             Requested size: 227.72522pt x 127.9778pt.
-
-<./picture/local_search.png, id=48, 455.45157pt x 255.95625pt>
-File: ./picture/local_search.png Graphic file (type png)
-
-<use ./picture/local_search.png>
-Package pdftex.def Info: ./picture/local_search.png used on input line 199.
-(pdftex.def)             Requested size: 227.72522pt x 127.9778pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+[5
+
+ <./picture/pruning1.png> <./picture/pruning2.png>]
+<./picture/local1.png, id=37, 505.89pt x 502.87875pt>
+File: ./picture/local1.png Graphic file (type png)
+
+<use ./picture/local1.png>
+Package pdftex.def Info: ./picture/local1.png used on input line 160.
+(pdftex.def)             Requested size: 151.76816pt x 150.86478pt.
+
+<./picture/local2.png, id=38, 505.89pt x 503.8825pt>
+File: ./picture/local2.png Graphic file (type png)
+
+<use ./picture/local2.png>
+Package pdftex.def Info: ./picture/local2.png used on input line 169.
+(pdftex.def)             Requested size: 151.76816pt x 151.16591pt.
+ [6 <./picture/complete_4.png> <./picture/local1.png>] <./picture/local3.png, i
+d=42, 507.8975pt x 504.88625pt>
+File: ./picture/local3.png Graphic file (type png)
+
+<use ./picture/local3.png>
+Package pdftex.def Info: ./picture/local3.png used on input line 178.
+(pdftex.def)             Requested size: 152.37042pt x 151.46703pt.
+
+<./picture/local_4.png, id=43, 407.5225pt x 97.36375pt>
+File: ./picture/local_4.png Graphic file (type png)
+
+<use ./picture/local_4.png>
+Package pdftex.def Info: ./picture/local_4.png used on input line 187.
+(pdftex.def)             Requested size: 203.76074pt x 48.68175pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<./picture/compelte_search.png, id=44, 455.45157pt x 255.95625pt>
+File: ./picture/compelte_search.png Graphic file (type png)
+
+<use ./picture/compelte_search.png>
+Package pdftex.def Info: ./picture/compelte_search.png used on input line 196.
+(pdftex.def)             Requested size: 227.72522pt x 127.9778pt.
+ [7 <./picture/local2.png> <./picture/local3.png>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 12.1638pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[8 <./picture/local_4.png> <./picture/compelte_search.png (PNG copy)>] [9 <./pi
-cture/local_search.png (PNG copy)>] (./ElizabethRapport.aux) ) 
+[8 <./picture/local_4.png> <./picture/compelte_search.png (PNG copy)>]
+<./picture/local_search.png, id=52, 455.45157pt x 255.95625pt>
+File: ./picture/local_search.png Graphic file (type png)
+
+<use ./picture/local_search.png>
+Package pdftex.def Info: ./picture/local_search.png used on input line 206.
+(pdftex.def)             Requested size: 227.72522pt x 127.9778pt.
+ [9
+
+ <./picture/local_search.png (PNG copy)>]
+(./ElizabethRapport.aux) ) 
 Here is how much of TeX's memory you used:
- 3022 strings out of 494999
- 40316 string characters out of 6180228
- 101623 words of memory out of 5000000
- 6186 multiletter control sequences out of 15000+600000
- 13944 words of font info for 33 fonts, out of 8000000 for 9000
+ 3024 strings out of 494999
+ 40341 string characters out of 6180228
+ 101626 words of memory out of 5000000
+ 6187 multiletter control sequences out of 15000+600000
+ 14618 words of font info for 34 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 37i,10n,43p,664b,327s stack positions out of 5000i,500n,10000p,200000b,80000s
- </comptes/E10460
-7D/.texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1000.600pk> </comptes/E104607D/.t
-exmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk> </comptes/E104607D/.texmf-
-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </comptes/E104607D/.texmf-var/f
-onts/pk/ljfour/jknappen/ec/ecbx1000.600pk> </comptes/E104607D/.texmf-var/fonts/
-pk/ljfour/jknappen/ec/ecbx1440.600pk> </comptes/E104607D/.texmf-var/fonts/pk/lj
-four/jknappen/ec/ecsl1000.600pk> </comptes/E104607D/.texmf-var/fonts/pk/ljfour/
-jknappen/ec/ecrm1000.600pk> </comptes/E104607D/.texmf-var/fonts/pk/ljfour/jknap
-pen/ec/ecrm1200.600pk> </comptes/E104607D/.texmf-var/fonts/pk/ljfour/jknappen/e
-c/ecrm1728.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on ElizabethRapport.pdf (9 pages, 303464 bytes).
+ 37i,10n,43p,663b,331s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </comptes/E104607D/.texmf-var/fonts/pk/ljfour/jknapp
+en/ec/eccc1000.600pk> </comptes/E104607D/.texmf-var/fonts/pk/ljfour/jknappen/ec
+/ecti1000.600pk> </comptes/E104607D/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx
+1200.600pk> </comptes/E104607D/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1000.
+600pk> </comptes/E104607D/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk
+> </comptes/E104607D/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsl1000.600pk> </c
+omptes/E104607D/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </compte
+s/E104607D/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </comptes/E10
+4607D/.texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1728.600pk> </comptes/E104607D
+/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsy10.pfb>
+Output written on ElizabethRapport.pdf (9 pages, 312722 bytes).
 PDF statistics:
- 372 PDF objects out of 1000 (max. 8388607)
- 73 compressed objects within 1 object stream
+ 404 PDF objects out of 1000 (max. 8388607)
+ 77 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  51 words of extra memory for PDF output out of 10000 (max. 10000000)
 
