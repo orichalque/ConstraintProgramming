@@ -51,26 +51,26 @@ Dans le cadre du module de Programmation par Contraintes en Master 1 ALMA, nous 
 
 Ce projet est étendu sur trois séances, durant lesquelles nous avons dû concevoir ce solveur, capable d'effectuer une recherche complète des solutions, mais aussi une recherche locale, et enfin comparer les résultats d'exécutions sur des problèmes de taille variable.
 
-Pour implémenter notre solveur, nous avons pris la décision d'utiliser le langage de Programmation Python3. Nous avons hésité avec $C++$, mais avons finalement choisi ce premier. Même si ses performances sont légèrement moins bonnes qu'avec $C++$, nous apprécions sa simplicité d’utilisation. De plus aucun autre module de notre Master ne nous a donné l’occasion de nous en servir, si bien que nous avons vu ici une opportunité pour nous réhabituer à ce langage particulièrement au goût du jour.
+Pour implémenter notre solveur, nous avons pris la décision d'utiliser le langage de Programmation Python3. Nous avons hésité avec $C++$, mais avons finalement choisi ce premier. Même si ses performances sont légèrement moins bonnes qu'avec $C++$, nous apprécions sa simplicité d’utilisation et sa gestion des listes et dictionnaires particulièrement adapté à la façon dont nous avons pensés notre solveur. De plus aucun autre module de notre Master ne nous a donné l’occasion de nous en servir, si bien que nous avons vu ici une opportunité pour nous réhabituer à ce langage particulièrement au goût du jour.
 
-Dans ce rapport nous verrons en première partie le problème des \emph{N-Queens} avec plus de précision. Ensuite nous parlerons de la recherche complète que nous avons implémenté, puis la recherche locale. Enfin nous comparerons nous résultats d'exécution. 
+Dans ce rapport nous verrons en première partie le problème des \emph{N-Queens} avec plus de précision. Ensuite nous parlerons de la recherche complète que nous avons implémenté, puis la recherche locale. Enfin nous comparerons nos résultats d'exécution. 
 
 
 \vspace{1cm}
 
 \subsection{Problème des N-Queens}
 
-Le problème des \emph{N-Queens} est un problème très célèbre dans le monde des mathématiques. Ce problème posé pour la première fois en 1850 par Franz Nauck consiste à poser $n$ reines sur un échiquier faisant $n$ cases de côté sans qu'elles puissent s'attaquer. Ainsi elles ne doivent pas: 
+Le problème des \emph{N-Queens} est un problème très célèbre dans le monde des mathématiques. Ce dernier, évoqué pour la première fois en 1850 par Franz Nauck consiste à poser $n$ reines sur un échiquier de $n\timesn$ cases sans qu'elles puissent s'attaquer. Ainsi elles ne doivent pas: 
 \begin{itemize}
-\item Etre sur la même ligne
-\item Etre sur la même colonne
-\item Etre sur la même diagonale
+\item Être sur la même ligne
+\item Être sur la même colonne
+\item Être sur la même diagonale
 \end{itemize}
 
 Ce problème est relativement complexe, car il n'existe pas d'algorithme polynomial.
 
 
-En testant toutes les possibilités de placement des reines sur un échiquier de taille $8*8$ avec un algorithme de recherche exhaustive, on se retrouve à parcourir $64^8$ placements possibles, soit $2^{48}$, si bien qu'on arrive rapidement à des temps d'exécution bien trop longs. Néanmoins on peut réduire facilement ce temps d'exécution avec la programmation par contraintes. 
+En testant toutes les possibilités de placement des reines sur un échiquier de taille $8\times8$ avec un algorithme de recherche exhaustive, on se retrouve à parcourir $64^8$ placements possibles, soit $2^{48}$, si bien qu'on arrive rapidement à des temps d'exécution bien trop longs. Néanmoins on peut réduire facilement ce temps d'exécution avec la programmation par contraintes. 
 
 
 \subsubsection{Contraintes}
@@ -99,17 +99,17 @@ Les contraintes sont donc les suivantes:
 \section{Complete Search}
 
 La recherche complète consiste à trouver toutes les solutions d'un problème, ou bien à prouver qu'il n'existe pas de solutions. 
-Pour effectuer cette recherche complète on utilise un algorithme de \emph{Branch \& Prune},fortement inspiré de celui vu en cours. 
+Pour effectuer cette recherche, on utilise un algorithme de \emph{Branch \& Prune},fortement inspiré de celui vu en cours. 
 
 On part d'un nœud vide, et pour chaque possibilité d'assignement de la variable suivante on crée une branche, c'est le \emph{branching}.
 
 On assigne donc nos variables $x_i$ une par une et on retire les valeurs qui ne valident pas les contraintes du domaine des variables pour les branches suivantes, c'est le \emph{pruning}. S'il n'y a plus de valeur possible dans le domaine d'une variable, c'est que l'assignement ne valide pas les contraintes. On peut donc fermer la branche et passer à la suivante.
 
-Ainsi toutes les branches dans lesquelles toutes les variables sont assignées sont une solution. Et de cette manière, en récupérant tous ces assignements différents, on a autant de solutions pour notre problème. 
+Ainsi les branches dont toutes les variables sont assignées représentent une solution. Et de cette manière, en récupérant tous ces assignements différents, nous récupérons l'ensemble des solutions du problème. 
 
 \clearpage
 
-Dans l'exemple suivant, on assigne la variable montrée par la croix. Lors de notre pruning, on réduit donc du domaine des variables suivantes toutes les cases grisées, c'est à dire les cases sur la même colonne, et sur les diagonales, qui violent les contraintes. 
+Dans l'exemple suivant, on assigne la variable montrée par la croix. Lors de notre pruning, on réduit donc du domaine des variables des noeuds suivants toutes les cases grisées, c'est à dire les cases sur la même colonne, et sur les diagonales, qui violent les contraintes. 
 https://thewalnut.io/app/release/11/ 
 \begin{figure}[h]
 \caption{\label{reine1} Première Reine}
@@ -135,7 +135,7 @@ Ainsi on peut trouver toutes les solutions possibles au problème des NQueens.
 La recherche locale de notre programme, par rapport à la recherche complète, s'arrête dès qu'elle trouve une solution au problème. L'algorithme implémenté se nomme
 \emph{min-conflicts algorithm}. 
 
-Pour trouver une solution, l'algorithme numérote chaque cellule de la ligne courante par le nombre de collision avec d'autres reines. C'est-à-dire, si une cellule se trouve sur la même ligne qu'une autre reine, La cellule a 1 pour valeur. Si elle est en plus à la diagonale d'une seconde reine, elle a 2 comme valeur.
+Pour trouver une solution, ce dernier numérote chaque cellule de la ligne courante par le nombre de collision avec d'autres reines. En effet, si une cellule se trouve sur la même ligne qu'une autre reine, La cellule prend 1 pour valeur. Si elle est en plus sur la diagonale d'une seconde reine, elle prend 2 comme valeur.
 Ainsi pour placer nos reines, on choisira toujours les cases valant 0.
 
 Lorsque plusieurs cellules de la ligne courante ont 0 comme valeur, on choisira la première parcourue. On aurait pu aussi la choisir de manière aléatoire, mais afin d'améliorer le temps d'exécution c'est la première solution que nous avons choisi. 
@@ -158,7 +158,7 @@ Ainsi on commence par la première ligne, en ayant 0 comme valeur sur chaque cel
 	\end{center}
 \end{figure}
 
-On place la première reine arbitrairement, on calcule ensuite l'indice de chaque cellule des lignes suivantes, jusqu'à avoir placé une reine sur chaque ligne. Si une ligne ne comporte pas de cellule indicée à 0, dans ce cas on place la reine sur l'indice minimum. 
+On place la première reine arbitrairement, on calcule ensuite l'indice de chaque cellule des lignes suivantes, jusqu'à avoir placé une reine sur chaque ligne. Si l'une d'elle ne comporte pas de cellule indicée à 0, dans ce cas on place la reine sur l'indice minimum. 
 
 \begin{figure}[!h]
 	\caption{\label{local3} Retour en arrière}
@@ -177,7 +177,7 @@ Enfin, lorsque la reine de la dernière ligne a été placée, on se rend sur la
 	\includegraphics[scale=0.5]{./picture/compelte_search.png}
 	\end{center}
 \end{figure}
-Voici les résultats d'exécution de l'algorithme de recherche complète de solutions. On voit assez rapidement que le temps d'exécution croit de manière exponentielle, puisque à partir de 12 reines, l'exécution dure 44 secondes. Nous n'avons pas fait plus d'exécutions pour une raison évidente de temps d'exécution.
+Voici les résultats d'exécution de l'algorithme de recherche complète de solutions. On voit assez rapidement que le temps d'exécution croit de manière exponentielle, puisque à partir de 12 reines, la résolution dure 44 secondes. Nous n'avons pas fait plus d'exécutions pour une raison temporelle évidente.
 
 \subsection{Local search}
 \begin{figure}[!h]
@@ -186,10 +186,10 @@ Voici les résultats d'exécution de l'algorithme de recherche complète de solu
 	\includegraphics[scale=0.5]{./picture/local_search.png}
 	\end{center}
 \end{figure}
-Voici ici les résultats d'exécution de l'algorithme de recherche locale d'une solution. Par rapport à l'algorithme précédent, on peut aller bien plus loin dans le nombre de reines. La croissance est elle aussi exponentielle, mais permet des résultats bien plus rapides qu'avec une recherche complète. 
+Voici ici les résultats d'exécution de l'algorithme de recherche locale d'une solution. Par rapport à l'algorithme précédent, on observe que l'on peut résoudre des problèmes avec un nombre plus important de reines. La croissance est elle aussi exponentielle, mais permet des résultats bien plus rapides qu'avec une recherche complète. 
 
 \section{Conclusion}
-Pour conclure ce projet, l'implémentation des algorithmes de recherche de solutions a été un exercice très intéressant, et nous a notamment permis de comprendre beaucoup plus aisément les algorithmes vus en cours. En voyant les résultats d'exécution, on comprend rapidement que l'algorithme de recherche locale est bien plus rapide que celui de recherche complète. Si bien qu'il vaut mieux utiliser ce dernier dans le cas où on a besoin de toutes les solutions. Ainsi l'algorithme de recherche locale est plutôt efficace dans le cadre d'un problème de satisfiabilité. blabla
+Pour conclure ce projet, l'implémentation des algorithmes de recherche de solutions a été un exercice très intéressant, et nous a notamment permis de comprendre beaucoup plus aisément les algorithmes vus en cours. En voyant les résultats d'exécution, on comprend rapidement que l'algorithme de recherche locale est bien plus rapide que celui de recherche complète. Si bien qu'il vaut mieux utiliser ce dernier dans le cas où l'on a besoin de toutes les solutions. Ainsi l'algorithme de recherche locale est plutôt efficace dans le cadre d'un problème de satisfiabilité.
 \section{Sources}
 
 \begin{tabular}{|c|c|}
