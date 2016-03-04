@@ -171,23 +171,25 @@ Enfin, lorsque la reine de la dernière ligne a été placée, on se rend sur la
 
 \section{Résultats d'exécution}
 \subsection{Complete search}
-\begin{tabular}{|c|c|}
-\hline
-Taille de l'échiquier & Temps d'exécution \\
-1 & 0.03 millisecondes \\
-2 & 0.07 millisecondes \\
-3 & 0.10 millisecondes \\
-4 & 0.25 millisecondes \\
-5 & 0.79 millisecondes \\
-6 & 3.05 millisecondes \\
-7 & 13.5 millisecondes \\
-8 & 61.19 millisecondes \\
-9 & 283 millisecondes \\
-10 & 1.7 secondes \\
-11 & 7.8 secondes \\
-12 & 44 secondes \\
-\hline
-\end{tabular}
+\begin{figure}[!h]
+	\caption{\label{csearch} Recherche complète}
+	\begin{center}
+	\includegraphics[scale=0.5]{./picture/compelte_search.png}
+	\end{center}
+\end{figure}
+Voici les résultats d'exécution de l'algorithme de recherche complète de solutions. On voit assez rapidement que le temps d'exécution croit de manière exponentielle, puisque à partir de 12 reines, l'exécution dure 44 secondes. Nous n'avons pas fait plus d'exécutions pour une raison évidente de temps d'exécution.
+
+\subsection{Local search}
+\begin{figure}[!h]
+	\caption{\label{lsearch} Recherche locale}
+	\begin{center}
+	\includegraphics[scale=0.5]{./picture/local_search.png}
+	\end{center}
+\end{figure}
+Voici ici les résultats d'exécution de l'algorithme de recherche locale d'une solution. Par rapport à l'algorithme précédent, on peut aller bien plus loin dans le nombre de reines. La croissance est elle aussi exponentielle, mais permet des résultats bien plus rapides qu'avec une recherche complète. 
+
+\section{Conclusion}
+Pour conclure ce projet, l'implémentation des algorithmes de recherche de solutions a été un exercice très intéressant, et nous a notamment permis de comprendre beaucoup plus aisément les algorithmes vus en cours. En voyant les résultats d'exécution, on comprend rapidement que l'algorithme de recherche locale est bien plus rapide que celui de recherche complète. Si bien qu'il vaut mieux utiliser ce dernier dans le cas où on a besoin de toutes les solutions. Ainsi l'algorithme de recherche locale est plutôt efficace dans le cadre d'un problème de satisfiabilité. blabla
 \section{Sources}
 
 \begin{tabular}{|c|c|}

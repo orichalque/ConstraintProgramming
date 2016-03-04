@@ -7,4 +7,5 @@
 \contentsline {section}{\numberline {3}Local Search}{5}
 \contentsline {section}{\numberline {4}R\IeC {\'e}sultats d'ex\IeC {\'e}cution}{8}
 \contentsline {subsection}{\numberline {4.1}Complete search}{8}
-\contentsline {section}{\numberline {5}Sources}{8}
+\contentsline {subsection}{\numberline {4.2}Local search}{8}
+\contentsline {section}{\numberline {5}Sources}{9}

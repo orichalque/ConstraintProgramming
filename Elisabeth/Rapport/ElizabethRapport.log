@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.11.3)  1 MAR 2016 18:23
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.11.3)  4 MAR 2016 13:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -438,14 +438,14 @@ Overfull \hbox (12.16278pt too wide) in paragraph at lines 78--79
 so-lu-tion. Les contraintes,
  []
 
-[3] [4] <./picture/pruning1.png, id=30, 279.0425pt x 246.9225pt>
+[3] [4] <./picture/pruning1.png, id=29, 279.0425pt x 246.9225pt>
 File: ./picture/pruning1.png Graphic file (type png)
 
 <use ./picture/pruning1.png>
 Package pdftex.def Info: ./picture/pruning1.png used on input line 117.
 (pdftex.def)             Requested size: 139.5209pt x 123.46094pt.
 
-<./picture/pruning2.png, id=31, 275.0275pt x 245.91875pt>
+<./picture/pruning2.png, id=30, 275.0275pt x 245.91875pt>
 File: ./picture/pruning2.png Graphic file (type png)
 
 <use ./picture/pruning2.png>
@@ -454,57 +454,77 @@ Package pdftex.def Info: ./picture/pruning2.png used on input line 126.
  [5
 
  <./picture/pruning1.png> <./picture/pruning2.png>] <./picture/local1.png, id=3
-6, 505.89pt x 502.87875pt>
+5, 505.89pt x 502.87875pt>
 File: ./picture/local1.png Graphic file (type png)
 
 <use ./picture/local1.png>
 Package pdftex.def Info: ./picture/local1.png used on input line 147.
 (pdftex.def)             Requested size: 151.76816pt x 150.86478pt.
  [6 <./picture/local1.png>]
-<./picture/local2.png, id=40, 505.89pt x 503.8825pt>
+<./picture/local2.png, id=39, 505.89pt x 503.8825pt>
 File: ./picture/local2.png Graphic file (type png)
 
 <use ./picture/local2.png>
 Package pdftex.def Info: ./picture/local2.png used on input line 157.
 (pdftex.def)             Requested size: 151.76816pt x 151.16591pt.
 
-<./picture/local3.png, id=41, 507.8975pt x 504.88625pt>
+<./picture/local3.png, id=40, 507.8975pt x 504.88625pt>
 File: ./picture/local3.png Graphic file (type png)
 
 <use ./picture/local3.png>
 Package pdftex.def Info: ./picture/local3.png used on input line 166.
 (pdftex.def)             Requested size: 152.37042pt x 151.46703pt.
+
+<./picture/compelte_search.png, id=41, 455.45157pt x 255.95625pt>
+File: ./picture/compelte_search.png Graphic file (type png)
+
+<use ./picture/compelte_search.png>
+Package pdftex.def Info: ./picture/compelte_search.png used on input line 177.
+(pdftex.def)             Requested size: 227.72522pt x 127.9778pt.
  [7
 
- <./picture/local2.png> <./picture/local3.png>]
-[8] (./ElizabethRapport.aux) ) 
+ <./picture/local2.png> <./picture/local3.png>] <./picture/local_search.png, id
+=46, 455.45157pt x 255.95625pt>
+File: ./picture/local_search.png Graphic file (type png)
+
+<use ./picture/local_search.png>
+Package pdftex.def Info: ./picture/local_search.png used on input line 186.
+(pdftex.def)             Requested size: 227.72522pt x 127.9778pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 12.1638pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[8 <./picture/compelte_search.png (PNG copy)> <./picture/local_search.png (PNG 
+copy)>] [9] (./ElizabethRapport.aux) ) 
 Here is how much of TeX's memory you used:
- 3002 strings out of 494999
- 39790 string characters out of 6180228
- 101591 words of memory out of 5000000
- 6168 multiletter control sequences out of 15000+600000
- 14708 words of font info for 34 fonts, out of 8000000 for 9000
+ 3010 strings out of 494999
+ 40054 string characters out of 6180228
+ 101607 words of memory out of 5000000
+ 6176 multiletter control sequences out of 15000+600000
+ 13944 words of font info for 33 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 37i,10n,43p,545b,302s stack positions out of 5000i,500n,10000p,200000b,80000s
- </comptes/E104607D/.texmf-var/fonts/pk/ljfour/jk
-nappen/ec/eccc1000.600pk> </comptes/E104607D/.texmf-var/fonts/pk/ljfour/jknappe
-n/ec/ecti1000.600pk> </comptes/E104607D/.texmf-var/fonts/pk/ljfour/jknappen/ec/
-ecbx1200.600pk> </comptes/E104607D/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1
-000.600pk> </comptes/E104607D/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.6
-00pk> </comptes/E104607D/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsl1000.600pk>
- </comptes/E104607D/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </co
-mptes/E104607D/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> </comptes
-/E104607D/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </comptes/E104
-607D/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmsy10.pfb>
-Output written on ElizabethRapport.pdf (8 pages, 239895 bytes).
+ 37i,10n,43p,545b,331s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </comptes/E104607D/.texmf-var/fonts/pk/l
+jfour/jknappen/ec/eccc1000.600pk> </comptes/E104607D/.texmf-var/fonts/pk/ljfour
+/jknappen/ec/ecti1000.600pk> </comptes/E104607D/.texmf-var/fonts/pk/ljfour/jkna
+ppen/ec/ecbx1200.600pk> </comptes/E104607D/.texmf-var/fonts/pk/ljfour/jknappen/
+ec/ecbx1000.600pk> </comptes/E104607D/.texmf-var/fonts/pk/ljfour/jknappen/ec/ec
+bx1440.600pk> </comptes/E104607D/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsl100
+0.600pk> </comptes/E104607D/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600
+pk> </comptes/E104607D/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> <
+/comptes/E104607D/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on ElizabethRapport.pdf (9 pages, 291227 bytes).
 PDF statistics:
- 356 PDF objects out of 1000 (max. 8388607)
- 75 compressed objects within 1 object stream
+ 362 PDF objects out of 1000 (max. 8388607)
+ 73 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
