@@ -60,7 +60,7 @@ Dans ce rapport nous verrons en première partie le problème des \emph{N-Queens
 
 \subsection{Problème des N-Queens}
 
-Le problème des \emph{N-Queens} est un problème très célèbre dans le monde des mathématiques. Ce dernier, évoqué pour la première fois en 1850 par Franz Nauck consiste à poser $n$ reines sur un échiquier de $n\timesn$ cases sans qu'elles puissent s'attaquer. Ainsi elles ne doivent pas: 
+Le problème des \emph{N-Queens} est un problème très célèbre dans le monde des mathématiques. Ce dernier, évoqué pour la première fois en 1850 par Franz Nauck consiste à poser $n$ reines sur un échiquier de $n$ cases sans qu'elles puissent s'attaquer. Ainsi elles ne doivent pas: 
 \begin{itemize}
 \item Être sur la même ligne
 \item Être sur la même colonne
@@ -99,7 +99,7 @@ Les contraintes sont donc les suivantes:
 \section{Complete Search}
 
 La recherche complète consiste à trouver toutes les solutions d'un problème, ou bien à prouver qu'il n'existe pas de solutions. 
-Pour effectuer cette recherche, on utilise un algorithme de \emph{Branch \& Prune},fortement inspiré de celui vu en cours. 
+Pour effectuer cette recherche, on utilise un algorithme de \emph{Branch \& Prune}, fortement inspiré de celui vu en cours. 
 
 On part d'un nœud vide, et pour chaque possibilité d'assignement de la variable suivante on crée une branche, c'est le \emph{branching}.
 
@@ -128,7 +128,14 @@ On assigne ensuite une seconde variable, et on recommence tant que le domaine de
 \end{figure}
 
 Ainsi on peut trouver toutes les solutions possibles au problème des NQueens.
+\clearpage
 
+\begin{figure}[!h]
+\caption{\label{complete4} Tous les résultats pour $n = 4$}
+\begin{center}
+\includegraphics[scale=0.5]{./picture/complete_4.png}
+\end{center}
+\end{figure}
 
 \section{Local Search}
 
@@ -150,7 +157,6 @@ Lorsque plusieurs cellules de la ligne courante ont 0 comme valeur, on choisira 
 
 Ainsi on commence par la première ligne, en ayant 0 comme valeur sur chaque cellule. 
 
-\clearpage
 \begin{figure}[!h]
 	\caption{\label{local2} Premier parcours}
 	\begin{center}
@@ -168,6 +174,13 @@ On place la première reine arbitrairement, on calcule ensuite l'indice de chaqu
 \end{figure}
 
 Enfin, lorsque la reine de la dernière ligne a été placée, on se rend sur la reine violant une contrainte la plus proche. On la déplace sur la cellule de la ligne qui a l'indice minimum. Si cette cellule n'est pas à 0, c'est qu'une nouvelle reine viole une contrainte, on se rend à nouveau sur cette reine, et on la déplace. On recommence tant que des contraintes sont violées. 
+
+\begin{figure}[h]
+\caption{\label{local4} Premier résultat pour $n = 4$}
+\begin{center}
+\includegraphics[scale=0.5]{./picture/local_4.png}
+\end{center}
+\end{figure}
 
 \section{Résultats d'exécution}
 \subsection{Complete search}
