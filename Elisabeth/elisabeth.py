@@ -45,8 +45,8 @@ def main():
             print_function(Node(sol))
         elif print_function == printSol:
             print_function(sol)
-    print("---%d solutions ---" % cpt)
-    print("---temps d'execution : %s millisecondes ---" % round(t, 4))
+    print("---%d solution(s) ---" % cpt)
+    print("---temps d'execution : %s milliseconde(s) ---" % round(t, 4))
 
 
 if __name__ == "__main__":
