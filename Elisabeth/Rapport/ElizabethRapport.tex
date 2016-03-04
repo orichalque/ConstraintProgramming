@@ -60,14 +60,14 @@ Dans ce rapport nous verrons en première partie le problème des \emph{N-Queens
 
 \subsection{Problème des N-Queens}
 
-Le problème des \emph{N-Queens} est un problème très célèbre dans le monde des mathématiques. Ce problème posé pour la première fois en 1850 par Franz Nauck consiste à trouver poser $n$ reines sur un échiquier faisant $n$ cases de côté sans qu'elles puissent s'attaquer. Ainsi elles ne doivent pas: 
+Le problème des \emph{N-Queens} est un problème très célèbre dans le monde des mathématiques. Ce problème posé pour la première fois en 1850 par Franz Nauck consiste à poser $n$ reines sur un échiquier faisant $n$ cases de côté sans qu'elles puissent s'attaquer. Ainsi elles ne doivent pas: 
 \begin{itemize}
 \item Etre sur la même ligne
 \item Etre sur la même colonne
 \item Etre sur la même diagonale
 \end{itemize}
 
-Ce problème pose quelques problèmes, car il n'existe pas d'algorithme polynomial en complexité.
+Ce problème est relativement complexe, car il n'existe pas d'algorithme polynomial.
 
 
 En testant toutes les possibilités de placement des reines sur un échiquier de taille $8*8$ avec un algorithme de recherche exhaustive, on se retrouve à parcourir $64^8$ placements possibles, soit $2^{48}$, si bien qu'on arrive rapidement à des temps d'exécution bien trop longs. Néanmoins on peut réduire facilement ce temps d'exécution avec la programmation par contraintes. 
@@ -78,16 +78,16 @@ En testant toutes les possibilités de placement des reines sur un échiquier de
 On doit ainsi modéliser les contraintes dans notre programme pour réduire drastiquement le nombre d'itérations avant de trouver une solution. Les contraintes, en langage naturel, sont donc:
 
 \begin{itemize}
-\item Il doit y avoir qu'une reine par ligne.
-\item Il doit y avoir qu'une reine par colonne.
+\item Il ne doit y avoir qu'une seule reine par ligne.
+\item Il ne doit y avoir qu'une seule reine par colonne.
 \item Il ne doit pas y avoir plus d'une reine par diagonale;
 \end{itemize}
 
-Ainsi pour modéliser ceci sous la forme d'un CSP, on utilisera les variables suivantes:
+Ainsi pour modéliser ceci sous la forme d'un \emph{CSP}, on utilisera les variables suivantes:
 $x_i$: Reine de la ligne $i$.
 $x_i = j$ : $j$, numéro de la colonne où est placée la reine.
 
-Avec ce modèle on est sûr qu'il n'y aura pas d'attaques si deux reines sont sur la même ligne, puisqu'on ne permet qu'une seule reine par ligne.
+Avec ce modèle on est sûr qu'il n'y aura pas d'attaques sur une même ligne, puisqu'on n'y autorise qu'une seule reine.
 Les contraintes sont donc les suivantes:
 \begin{itemize}
 \item Pas d'attaque sur les colonnes: $allDifferent(x_i)$ $\forall i \in [1, n]$. $\forall i \neq j$, $x_i \neq x_j$
@@ -99,7 +99,7 @@ Les contraintes sont donc les suivantes:
 \section{Complete Search}
 
 La recherche complète consiste à trouver toutes les solutions d'un problème, ou bien à prouver qu'il n'existe pas de solutions. 
-Pour effectuer cette recherche complète on utilise un algorithme de \emph{Branch \& Prune}, celui vu en cours. 
+Pour effectuer cette recherche complète on utilise un algorithme de \emph{Branch \& Prune},fortement inspiré de celui vu en cours. 
 
 On part d'un nœud vide, et pour chaque possibilité d'assignement de la variable suivante on crée une branche, c'est le \emph{branching}.
 
